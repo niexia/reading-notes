@@ -1,11 +1,11 @@
 {
-  "name": "book-note",
+  "name": "reading-notes",
   "version": "0.0.1",
-  "description": "vue,react 等框架源码学习",
+  "description": "📚 笔记",
   "main": "index.js",
   "scripts": {
-    "dev": "vuepress dev docs",
-    "build": "vuepress build docs",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs",
     "commit": "git-cz",
     "release": "standard-version"
   },
@@ -16,18 +16,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/niexias/book-note.git"
+    "url": "git+https://github.com/niexia/reading-notes.git"
   },
   "keywords": [
     "vue",
     "react"
   ],
-  "author": "niexias",
+  "author": "niexia",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/niexias/book-note/issues"
+    "url": "https://github.com/niexia/reading-notes/issues"
   },
-  "homepage": "https://github.com/niexias/book-note#readme",
+  "homepage": "https://github.com/niexia/reading-notes#readme",
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",

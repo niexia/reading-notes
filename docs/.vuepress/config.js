@@ -1,9 +1,9 @@
 const path = require("path");
 
 module.exports = {
-  title: '读书笔记',
-  description: '记性不好 还是写点啦',
-  base: '/book-note/',
+  title: 'Reading Notes',
+  description: '还是写点啦!',
+  base: '/reading-notes/',
   dest: 'dist',
   head: [
     ['link', { rel: 'icon', href: '/favicon.ico' }]
@@ -19,21 +19,29 @@ module.exports = {
     lineNumbers: true
   },
   themeConfig: {
-    repo: 'niexias/book-note',
+    repo: 'niexia/reading-notes',
     editLinks: true,
     docsDir: 'docs',
     editLinkText: '在 GitHub 上编辑此页',
     lastUpdated: '上次更新',
     nav: [{
       text: '个人博客',
-      link: 'https://niexias.github.io/'
+      link: 'https://niexia.github.io/'
     }],
     sidebarDepth: 2,
     sidebar: [{
-      title: "写在最前面",
-      collapsable: false,
-      children: [
-      ]
+      '/architecture/': {
+        title: '基础架构',
+        collapsable: false,
+        sidebarDepth: 2,
+        children: [
+          ['', '介绍'],
+          '基础架构/了解架构设计',
+          '基础架构/架构设计的三个原则',
+          '基础架构/系统复杂度来源',
+          '基础架构/架构设计流程',
+        ]
+      }
     }]
   },
   plugins: [
