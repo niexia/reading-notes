@@ -40,6 +40,15 @@ module.exports = config({
               },
             ]
           },
+          {
+            text: '代码整洁之道',
+            items: [
+              {
+                text: '代码整洁之道-程序员的职业素养',
+                link: '/the-clean-coder/',
+              },
+            ]
+          }
         ]
       },
       {
@@ -49,49 +58,8 @@ module.exports = config({
     ],
     sidebarDepth: 2,
     sidebar: {
-      '/learn-architecture-from-zero/': [{
-          title: '基础架构',
-          collapsable: false,
-          sidebarDepth: 2,
-          children: [
-            ['', '介绍'],
-            'infrastructure/what-is-architecture',
-            'infrastructure/principles',
-            'infrastructure/sources-of-complexity',
-            'infrastructure/design-flow',
-          ]
-        },
-        {
-          title: '高可用架构模式',
-          collapsable: false,
-          sidebarDepth: 2,
-          children: []
-        },
-        {
-          title: '高性能架构模式',
-          collapsable: false,
-          sidebarDepth: 2,
-          children: []
-        },
-        {
-          title: '可扩展架构模式',
-          collapsable: false,
-          sidebarDepth: 2,
-          children: []
-        },
-        {
-          title: '架构实战',
-          collapsable: false,
-          sidebarDepth: 2,
-          children: []
-        },
-        {
-          title: '思考总结',
-          collapsable: false,
-          sidebarDepth: 2,
-          children: []
-        }
-      ],
+      '/learn-architecture-from-zero/': getLearnArchitectureFromZeroSideBar(),
+      '/the-clean-coder/': getTheCleanCoderSideBar(),
     }
   },
   plugins: [
@@ -108,3 +76,61 @@ module.exports = config({
     ]
   ]
 });
+
+function getLearnArchitectureFromZeroSideBar() {
+  return [{
+      title: '基础架构',
+      collapsable: false,
+      sidebarDepth: 2,
+      children: [
+        ['', '介绍'],
+        'infrastructure/what-is-architecture',
+        'infrastructure/principles',
+        'infrastructure/sources-of-complexity',
+        'infrastructure/design-flow',
+      ]
+    },
+    {
+      title: '高可用架构模式',
+      collapsable: false,
+      sidebarDepth: 2,
+      children: []
+    },
+    {
+      title: '高性能架构模式',
+      collapsable: false,
+      sidebarDepth: 2,
+      children: []
+    },
+    {
+      title: '可扩展架构模式',
+      collapsable: false,
+      sidebarDepth: 2,
+      children: []
+    },
+    {
+      title: '架构实战',
+      collapsable: false,
+      sidebarDepth: 2,
+      children: []
+    },
+    {
+      title: '思考总结',
+      collapsable: false,
+      sidebarDepth: 2,
+      children: []
+    }
+  ]
+}
+
+function getTheCleanCoderSideBar() {
+  return [{
+    title: '专业主义',
+    collapsable: false,
+    sidebarDepth: 2,
+    children: [
+      ['', '程序员的职业素养'],
+      'professionalism/professionalism',
+    ]
+  }, ]
+}
