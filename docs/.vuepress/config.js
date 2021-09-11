@@ -132,5 +132,12 @@ function getTheCleanCoderSideBar() {
       ['', '程序员的职业素养'],
       'professionalism/professionalism',
     ]
+  }, {
+    title: '说不',
+    collapsable: false,
+    sidebarDepth: 2,
+    children: [
+      'say-no/say-no',
+    ]
   }, ]
 }
