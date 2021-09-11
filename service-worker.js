@@ -27,11 +27,11 @@ self.addEventListener('message', (event) => {
 self.__precacheManifest = [
   {
     "url": "404.html",
-    "revision": "580da08af71ea5ea1e7d871db4b739f2"
+    "revision": "ae828c10dbb4ce88a78d964e72c70f30"
   },
   {
     "url": "article/index.html",
-    "revision": "c3ec2ba7bcadbb5aa6cbfd69f1f7deaa"
+    "revision": "bd3ef0443a1af63c0105ecd9d7749b31"
   },
   {
     "url": "assets/architecture-cluter-extend.png",
@@ -114,20 +114,20 @@ self.__precacheManifest = [
     "revision": "ec428b6d6d45ac5d0c610f08d757f40f"
   },
   {
-    "url": "assets/js/20.29a66739.js",
-    "revision": "61af4a5f0e77c59e60eebaa144efffcb"
+    "url": "assets/js/21.0e985be0.js",
+    "revision": "0193a76720909e77a8b3610fd402682e"
   },
   {
-    "url": "assets/js/21.7d0ec45d.js",
-    "revision": "85f0edab77f2154f134e3342bce7be10"
+    "url": "assets/js/22.d32e7c32.js",
+    "revision": "32a025c236db1634458ea1b2c2ed3524"
   },
   {
     "url": "assets/js/3.dce1afc6.js",
     "revision": "f9d76ae089d6e345da54d0647658fae6"
   },
   {
-    "url": "assets/js/app.0bb168a6.js",
-    "revision": "043c64c55c55643f0f2fcb1f91019067"
+    "url": "assets/js/app.2f842212.js",
+    "revision": "227661bff58a95be877aa123711f33e7"
   },
   {
     "url": "assets/js/layout-Blog.32d11e7f.js",
@@ -146,20 +146,20 @@ self.__precacheManifest = [
     "revision": "75f0e2b224d556ab98fc83611ca9605b"
   },
   {
-    "url": "assets/js/page--036a775b.57f4b817.js",
-    "revision": "c353b2fc73aa1e81e98c99e891b8bfc7"
+    "url": "assets/js/page--036a775b.92577d0c.js",
+    "revision": "562d4843f580b9485ee6717cbfdf327a"
   },
   {
     "url": "assets/js/page--558e210a.5e4cf37a.js",
     "revision": "3d1f325b548648e5e0e4e3d8ec389a1f"
   },
   {
-    "url": "assets/js/page--97d3928c.189523dc.js",
-    "revision": "9e68cdfb3e8abbc2ce5f371ef8102c6a"
+    "url": "assets/js/page--97d3928c.5711f69b.js",
+    "revision": "059e70e8ff77374072cc94de838fa5d0"
   },
   {
-    "url": "assets/js/page-专业主义.52087ee6.js",
-    "revision": "a623a945a1679010227f44f5f4b61134"
+    "url": "assets/js/page-专业主义.a3f64a21.js",
+    "revision": "96ee283314487534730c747f0c0df1d5"
   },
   {
     "url": "assets/js/page-了解架构设计.1801b247.js",
@@ -170,16 +170,20 @@ self.__precacheManifest = [
     "revision": "27cce9440320b6f3d7b1cfd9eed06baa"
   },
   {
-    "url": "assets/js/page-代码整洁之道-程序员的职业素养.f62ab13c.js",
-    "revision": "869955fc7a274b986c4909f938469552"
+    "url": "assets/js/page-代码整洁之道-程序员的职业素养.e7d9e810.js",
+    "revision": "5764a1aaf72f32970c5c416e96a9706c"
   },
   {
     "url": "assets/js/page-前言.d48883da.js",
     "revision": "92cb96f80e48e21c752c2f2f0d5eeeee"
   },
   {
-    "url": "assets/js/page-系统复杂度的来源.c7985211.js",
-    "revision": "27a49520950c57663a7511a3b464350f"
+    "url": "assets/js/page-系统复杂度的来源.aee9fba7.js",
+    "revision": "2b1bde4245d44f87decb9dd21f703095"
+  },
+  {
+    "url": "assets/js/page-说不.6dac671b.js",
+    "revision": "951ceda8310023582bec3635a8aa9cec"
   },
   {
     "url": "assets/js/vendors~layout-Blog~layout-Layout~layout-NotFound.c02d2c5e.js",
@@ -190,44 +194,44 @@ self.__precacheManifest = [
     "revision": "ed39d2f15160080ffb5e6c44d8680612"
   },
   {
-    "url": "assets/js/vendors~layout-Layout.79d8d642.js",
-    "revision": "f846a7f95d09ddb0f9d229546cb0bc9c"
+    "url": "assets/js/vendors~layout-Layout.2a367880.js",
+    "revision": "e363196518efd452f8a16cde94917479"
   },
   {
-    "url": "assets/js/vendors~photo-swipe.5b552896.js",
-    "revision": "1a4cedeac9bf9fab76e1fcc7d7a81d15"
+    "url": "assets/js/vendors~photo-swipe.4487d372.js",
+    "revision": "436d891000e365bcf5851691c81265a1"
   },
   {
     "url": "category/index.html",
-    "revision": "8af4bc514d976b8fa7209feb2a418246"
+    "revision": "5a366b8278a83972b81c96e04666c015"
   },
   {
     "url": "encrypt/index.html",
-    "revision": "38cba95923303f18e61e861467cf9fdd"
+    "revision": "e133aeefd082e687fe65b9d54534dbb8"
   },
   {
     "url": "index.html",
-    "revision": "7ef7de6d17b7ff326ae21daa72d8e42c"
+    "revision": "2192e1b594e2e4a13463380826464878"
   },
   {
     "url": "learn-architecture-from-zero/index.html",
-    "revision": "756c211790369e613f4fb4bb33ecea98"
+    "revision": "1175a44d29283e130b86599496f8aadd"
   },
   {
     "url": "learn-architecture-from-zero/infrastructure/design-flow/index.html",
-    "revision": "e06214cd1cc141bbb447ab2984224f4f"
+    "revision": "b52868009d7ad773a6fcd1d32da39a42"
   },
   {
     "url": "learn-architecture-from-zero/infrastructure/principles/index.html",
-    "revision": "14f4ef15d45417316651807214f954df"
+    "revision": "53d7a596cc169654cc72d07f37b209ad"
   },
   {
     "url": "learn-architecture-from-zero/infrastructure/sources-of-complexity/index.html",
-    "revision": "0b88ce1d2664c525617939c033952bca"
+    "revision": "51c55242219ada37e4b0bae264e9575f"
   },
   {
     "url": "learn-architecture-from-zero/infrastructure/what-is-architecture/index.html",
-    "revision": "23c1eb4be3f949a588bc2ef1ae6058fd"
+    "revision": "48f126df3fea333fffeffa569ef8788b"
   },
   {
     "url": "logo.png",
@@ -235,31 +239,35 @@ self.__precacheManifest = [
   },
   {
     "url": "mysql/index.html",
-    "revision": "0adfcc815a6cef0d71f36730c21fcf59"
+    "revision": "1400edb7e17c89c6ee06c605eb472b10"
   },
   {
     "url": "slide/index.html",
-    "revision": "d183176cc21b176ab6d88cf60fd0e0d8"
+    "revision": "98d51f53a21ad87496861b21bb93c8b3"
   },
   {
     "url": "star/index.html",
-    "revision": "be0554835d8be68c02f83616e4d6a5b5"
+    "revision": "bca431f430193e624214b99a2107cb4c"
   },
   {
     "url": "tag/index.html",
-    "revision": "f10985da581738132f62826aa3ff2ba5"
+    "revision": "be7b6e4165b8abbf5bc5ce2d9c9b1b59"
   },
   {
     "url": "the-clean-coder/index.html",
-    "revision": "a3b5201fe5d7e09ccd326957ded1b4f8"
+    "revision": "a6379780f040b5b373383608246746dd"
   },
   {
     "url": "the-clean-coder/professionalism/professionalism/index.html",
-    "revision": "368c362898cf92e5de095e3e7cdc4583"
+    "revision": "5d910d90095861911a36bd6768688f41"
+  },
+  {
+    "url": "the-clean-coder/say-no/say-no/index.html",
+    "revision": "cba6a972b8b89794e5fc73eaebf565ca"
   },
   {
     "url": "timeline/index.html",
-    "revision": "74cc39d4db70b01e195fb87928839abd"
+    "revision": "c36236ef0c423e6aaa0a4ea487aaf082"
   },
   {
     "url": "workbox-2c301fb6.js",
