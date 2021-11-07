@@ -2,8 +2,8 @@ const path = require("path");
 const { config } = require("vuepress-theme-hope");
 
 module.exports = config({
-  title: 'Reading Notes',
-  description: '还是写点啦!',
+  title: '读书笔记',
+  description: '写点啦!',
   base: '/reading-notes/',
   dest: 'dist',
   head: [
@@ -30,7 +30,7 @@ module.exports = config({
     lastUpdated: '上次更新',
     sitemap: false,
     nav: [{
-        text: '📃 分类',
+        text: '🚦 目录',
         items: [{
             text: '架构设计',
             items: [
