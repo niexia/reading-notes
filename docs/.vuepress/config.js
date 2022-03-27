@@ -2,7 +2,7 @@ const path = require("path");
 const { config } = require("vuepress-theme-hope");
 
 module.exports = config({
-  title: '读书笔记',
+  title: '💡Reading notes',
   description: '写点啦!',
   base: '/reading-notes/',
   dest: 'dist',
@@ -29,45 +29,14 @@ module.exports = config({
     editLinkText: '在 GitHub 上编辑此页',
     lastUpdated: '上次更新',
     sitemap: false,
-    nav: [{
-        text: '🚦 目录',
-        items: [{
-            text: '架构设计',
-            items: [
-              {
-                text: '从 0 开始学架构',
-                link: '/learn-architecture-from-zero/',
-              },
-            ]
-          },
-          {
-            text: '代码整洁之道',
-            items: [
-              {
-                text: '代码整洁之道-程序员的职业素养',
-                link: '/the-clean-coder/',
-              },
-            ]
-          },
-          {
-            text: '人物传记',
-            items: [{
-              text: '硅谷钢铁侠',
-              link: '/elon-musk/',
-            }, ]
-          }
-        ]
-      },
-      {
-        text: '个人博客',
-        link: 'https://niexia.github.io/'
-      }
-    ],
+    nav: getNav(),
     sidebarDepth: 2,
     sidebar: {
       '/learn-architecture-from-zero/': getLearnArchitectureFromZeroSideBar(),
       '/the-clean-coder/': getTheCleanCoderSideBar(),
+      '/the-beauty-of-design-patterns/': getTheBeautyOfDesignPatternsSidebar(),
       '/elon-musk/': getTheElonMuskBiographySideBar(),
+      '/the-minto-pyramid-principle/': getTheMintoPyramidPrincipleSidebar(),
     }
   },
   plugins: [
@@ -84,6 +53,46 @@ module.exports = config({
     ]
   ]
 });
+
+function getNav() {
+  return [{
+      text: '目录',
+      items: [{
+          text: '技术',
+          items: [
+          {
+            text: '设计模式之美',
+            link: '/the-beauty-of-design-patterns/',
+          }, {
+            text: '从 0 开始学架构',
+            link: '/learn-architecture-from-zero/',
+          }, {
+            text: '代码整洁之道-程序员的职业素养',
+            link: '/the-clean-coder/',
+          }, ]
+        },
+        {
+          text: '表达',
+          items: [{
+            text: '金字塔原理',
+            link: '/the-minto-pyramid-principle/',
+          }, ]
+        },
+        {
+          text: '人物传记',
+          items: [{
+            text: '硅谷钢铁侠',
+            link: '/elon-musk/',
+          }, ]
+        },
+      ]
+    },
+    {
+      text: '个人博客',
+      link: 'https://niexia.github.io/'
+    }
+  ]
+}
 
 function getLearnArchitectureFromZeroSideBar() {
   return [{
@@ -228,6 +237,71 @@ function getTheElonMuskBiographySideBar() {
     sidebarDepth: 2,
     children: [
       'elon-musk-unified-field-theory/',
+    ]
+  }, ]
+}
+
+function getTheMintoPyramidPrincipleSidebar() {
+  return [{
+    title: '表达的逻辑',
+    collapsable: false,
+    sidebarDepth: 2,
+    children: [
+      ['', '程序员的职业素养'],
+      'the-minto-pyramid-principle/professionalism',
+    ]
+  }, {
+    title: '思考的逻辑',
+    collapsable: false,
+    sidebarDepth: 2,
+    children: [
+      'say-no/say-no',
+    ]
+  }, {
+    title: '解决问题的逻辑',
+    collapsable: false,
+    sidebarDepth: 2,
+    children: [
+      'say-no/say-no',
+    ]
+  }, {
+    title: '演示的逻辑',
+    collapsable: false,
+    sidebarDepth: 2,
+    children: [
+      'say-no/say-no',
+    ]
+  }, ]
+}
+
+function getTheBeautyOfDesignPatternsSidebar() {
+  return [{
+    title: '面向对象',
+    collapsable: false,
+    sidebarDepth: 2,
+    children: [
+      'object-oriented/what-is-object-oriented',
+    ]
+  }, {
+    title: '设计原则',
+    collapsable: false,
+    sidebarDepth: 2,
+    children: [
+      'design-principles/say-no',
+    ]
+  }, {
+    title: '规范与重构',
+    collapsable: false,
+    sidebarDepth: 2,
+    children: [
+      'standard-refactor/say-no',
+    ]
+  }, {
+    title: '设计模式',
+    collapsable: false,
+    sidebarDepth: 2,
+    children: [
+      'design-patterns/say-no',
     ]
   }, ]
 }
