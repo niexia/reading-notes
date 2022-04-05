@@ -27,11 +27,11 @@ self.addEventListener('message', (event) => {
 self.__precacheManifest = [
   {
     "url": "404.html",
-    "revision": "f15e3b0e057d404cfe94601ea4ce7971"
+    "revision": "e261470f5eebedac2c21ca406d8f3957"
   },
   {
     "url": "article/index.html",
-    "revision": "d81c6717b2a23fe34f8cdf7955c0885d"
+    "revision": "f3bfb3e4844e5e1769b03dd36cd942dc"
   },
   {
     "url": "assets/architecture-cluter-extend.png",
@@ -94,6 +94,14 @@ self.__precacheManifest = [
     "revision": "88826912d81d91c9e2d03164cd1481a1"
   },
   {
+    "url": "assets/img/object-oriented-extends-category.ec6375ce.png",
+    "revision": "ec6375cee983e16a868c53c764923699"
+  },
+  {
+    "url": "assets/img/object-oriented-extents.bfe20ae1.png",
+    "revision": "bfe20ae1abe027ca25c1eeec094aba1c"
+  },
+  {
     "url": "assets/img/search.83621669.svg",
     "revision": "83621669651b9a3d4bf64d1a670ad856"
   },
@@ -114,92 +122,96 @@ self.__precacheManifest = [
     "revision": "ec428b6d6d45ac5d0c610f08d757f40f"
   },
   {
-    "url": "assets/js/25.ae0dafbd.js",
-    "revision": "2a4ff97fda7f9e688d39c5b97014053e"
+    "url": "assets/js/26.d89d310b.js",
+    "revision": "aa6fdada3698bb8e1aae708fa539fd69"
   },
   {
-    "url": "assets/js/26.8745758a.js",
-    "revision": "67efd59bc393b31006caa51d9e5f49d9"
+    "url": "assets/js/27.35a99a6b.js",
+    "revision": "f46ad1db6886ae62fa1883a6632804b5"
   },
   {
-    "url": "assets/js/3.dce1afc6.js",
-    "revision": "f9d76ae089d6e345da54d0647658fae6"
+    "url": "assets/js/3.f2f4ea2d.js",
+    "revision": "9ab38d87d5e6fe4c6ebf2c858f407ecd"
   },
   {
-    "url": "assets/js/app.e4a04009.js",
-    "revision": "a09d26fb4d52565ea9e46c66e74a94e3"
+    "url": "assets/js/app.4e4e8978.js",
+    "revision": "124e898f0583e76e1d43def63757bbd9"
   },
   {
-    "url": "assets/js/layout-Blog.846626cd.js",
-    "revision": "49d434728a9603991759a5cd7d2d0870"
+    "url": "assets/js/layout-Blog.b5be986f.js",
+    "revision": "e7de742b647cbefae7e38d7f2c45dc8c"
   },
   {
     "url": "assets/js/layout-Layout.ea688dcf.js",
     "revision": "266efc939d9edd44c3878f0caa00687b"
   },
   {
-    "url": "assets/js/layout-NotFound.8801acf6.js",
-    "revision": "93a612c55bdda1bf922c8ee72f334b85"
+    "url": "assets/js/layout-NotFound.97c06176.js",
+    "revision": "21b0a535cab610d9d4413b2a2c2d2fae"
   },
   {
-    "url": "assets/js/layout-Slide.fbff9a57.js",
-    "revision": "ecea0019d0b7752a0124a929d18295b2"
+    "url": "assets/js/layout-Slide.d359760c.js",
+    "revision": "c121cc0a277394a2443933386f24b0b6"
   },
   {
-    "url": "assets/js/page--3992e0e1.b9fa6676.js",
-    "revision": "56b998bf05439998067b14078362fef0"
+    "url": "assets/js/page--3992e0e1.8bd7e468.js",
+    "revision": "e1c61247c7f14b0a8b235e192c3033e8"
   },
   {
-    "url": "assets/js/page--44a0de64.7bcb16f5.js",
-    "revision": "d739297f407978fc54d379c3476c6611"
+    "url": "assets/js/page--44a0de64.12af4578.js",
+    "revision": "e02516dc3adcb106330d7f21a906464f"
   },
   {
-    "url": "assets/js/page--ac2b465e.18a6ba60.js",
-    "revision": "bd8f44649b973f76d0bccf1995915043"
+    "url": "assets/js/page--ac2b465e.c12aacfd.js",
+    "revision": "fe2f6c8cff781681e615dc1815528836"
   },
   {
-    "url": "assets/js/page-专业主义.cc837050.js",
-    "revision": "513884bf0a8da7d1735ae0869866a94f"
+    "url": "assets/js/page-SOLID.2418d8cb.js",
+    "revision": "d762c019c9bd088fb0c1a5d7b25a8f22"
   },
   {
-    "url": "assets/js/page-为什么需要学习掌握设计模式相关知识.fc114664.js",
-    "revision": "39281e32121e3867fcdb5162c51d63e4"
+    "url": "assets/js/page-专业主义.94e1cedb.js",
+    "revision": "377a14d5f83b61b7f4ffc113807d0b11"
   },
   {
-    "url": "assets/js/page-了解架构设计.ca08f448.js",
-    "revision": "d838b9202ff9952d7dca7bbfe70577e2"
+    "url": "assets/js/page-为什么需要学习掌握设计模式相关知识.aa480042.js",
+    "revision": "78e1e02fe197962700be8bd605c60400"
   },
   {
-    "url": "assets/js/page-从0开始学架构.9347711e.js",
-    "revision": "c6695c1a8f45e54b9682db6ff68ef0e9"
+    "url": "assets/js/page-了解架构设计.36e91f4d.js",
+    "revision": "d7101890f28f8e565f6c8060620098d3"
   },
   {
-    "url": "assets/js/page-代码整洁之道-程序员的职业素养.8d9ea009.js",
-    "revision": "527920e15f95e73bd15559a225cc796f"
+    "url": "assets/js/page-从0开始学架构.9a8c3e8c.js",
+    "revision": "6c7e9d8163214c668e16005fee8788a7"
   },
   {
-    "url": "assets/js/page-前言.8c6bfe18.js",
-    "revision": "0fa94c17c6fdd9eb21052bb141afd7e8"
+    "url": "assets/js/page-代码整洁之道-程序员的职业素养.6d324441.js",
+    "revision": "fc328e60370d371a1743d1eca3066579"
   },
   {
-    "url": "assets/js/page-硅谷钢铁侠.4387771a.js",
-    "revision": "cac348d8db8afe72f35ef4501507dbb6"
+    "url": "assets/js/page-前言.8eb9b966.js",
+    "revision": "9ef008a6d972be8ce33dc2d67e826e13"
   },
   {
-    "url": "assets/js/page-系统复杂度的来源.10242c45.js",
-    "revision": "16dc435da12ca439f1182b8e790a56b4"
+    "url": "assets/js/page-硅谷钢铁侠.62aee097.js",
+    "revision": "f207b438b62f5d8be5328231014210f2"
   },
   {
-    "url": "assets/js/page-说不.0dbcfc15.js",
-    "revision": "b1e6ae6c98901828218646800f105c8a"
+    "url": "assets/js/page-系统复杂度的来源.08879614.js",
+    "revision": "0354cbe63e481d2af8e3acd1be12b6b2"
   },
   {
-    "url": "assets/js/page-说是.b9ba821b.js",
-    "revision": "4f0e5b662c8a4551f286981609ad3dc4"
+    "url": "assets/js/page-说不.11bfc0c2.js",
+    "revision": "db5a3c8b89813941766bad7e2057e57d"
   },
   {
-    "url": "assets/js/page-面向对象是什么.5e31738f.js",
-    "revision": "c8708815112714916b638cce11aa61fb"
+    "url": "assets/js/page-说是.678ef1c5.js",
+    "revision": "af7d04c2a7233f3eab1ffdf76fa4ada4"
+  },
+  {
+    "url": "assets/js/page-面向对象是什么.56b5b721.js",
+    "revision": "568c7cb5e31774b8015f422348e15c98"
   },
   {
     "url": "assets/js/vendors~layout-Blog~layout-Layout~layout-NotFound.7c754536.js",
@@ -210,48 +222,56 @@ self.__precacheManifest = [
     "revision": "763d8aa645dde3673ce0733e998194a4"
   },
   {
-    "url": "assets/js/vendors~layout-Layout.3a29b77a.js",
-    "revision": "8ba73890fcb7aba3df6e6f295e116cd9"
+    "url": "assets/js/vendors~layout-Layout.4e60704e.js",
+    "revision": "fb33fe0c797a7240b04011523283de2f"
   },
   {
-    "url": "assets/js/vendors~photo-swipe.63e198ec.js",
-    "revision": "795c728fbe3192d468d3835ab546ddef"
+    "url": "assets/js/vendors~photo-swipe.90c0d90a.js",
+    "revision": "0cf28704ae1491e775c8924f7ef60fcc"
+  },
+  {
+    "url": "assets/object-oriented-extends-category.png",
+    "revision": "ec6375cee983e16a868c53c764923699"
+  },
+  {
+    "url": "assets/object-oriented-extents.png",
+    "revision": "bfe20ae1abe027ca25c1eeec094aba1c"
   },
   {
     "url": "category/index.html",
-    "revision": "5203718a4c559b41e1c4678fb68c9215"
+    "revision": "061b6cc7c179b37e83379204b7761a4f"
   },
   {
     "url": "elon-musk/index.html",
-    "revision": "46f70927adecd23f537a866d3e319aaa"
+    "revision": "685167b5fc7852da90af4524cab46b83"
   },
   {
     "url": "encrypt/index.html",
-    "revision": "8a3aee901cf6906e77c09e8db75c838e"
+    "revision": "7dc6a53f2a39eb5e7e7fb0d728609f4a"
   },
   {
     "url": "index.html",
-    "revision": "1c782c8486210aaf7f59a84cf3f8a39a"
+    "revision": "7d02c0bc1e39790f2a1486d0a33e3b20"
   },
   {
     "url": "learn-architecture-from-zero/index.html",
-    "revision": "5e4ab8d07b7a75277d9580160fd5c3a6"
+    "revision": "e4281360f3d930bc6e303b0995887474"
   },
   {
     "url": "learn-architecture-from-zero/infrastructure/design-flow/index.html",
-    "revision": "b87829d731c8281053d19c121c26aeaa"
+    "revision": "5809d40109af4a3bf868614b311ccfcf"
   },
   {
     "url": "learn-architecture-from-zero/infrastructure/principles/index.html",
-    "revision": "57461a9e72009556fcc2efa75bcf5799"
+    "revision": "4d8df9b3585fbb5be95842b45bbd21b5"
   },
   {
     "url": "learn-architecture-from-zero/infrastructure/sources-of-complexity/index.html",
-    "revision": "a46b69f0ac88dad224030c87668172f1"
+    "revision": "39afd14d80c900eb8431150917e1f10a"
   },
   {
     "url": "learn-architecture-from-zero/infrastructure/what-is-architecture/index.html",
-    "revision": "b064f8c74bd240cd3393132e8304ce3a"
+    "revision": "a1441408b375b710ec90272bd9d94158"
   },
   {
     "url": "logo.png",
@@ -259,47 +279,51 @@ self.__precacheManifest = [
   },
   {
     "url": "mysql/index.html",
-    "revision": "447199a49bb7ce32f587f5be22443e3c"
+    "revision": "a47e2f9dbe19f2ae72264563007128de"
   },
   {
     "url": "slide/index.html",
-    "revision": "a025353269e3efe9cec0a4ff1492a9a0"
+    "revision": "b6afcc42e0d8e41f5beb5738657c70d7"
   },
   {
     "url": "star/index.html",
-    "revision": "95c3bc6571fcf82c70661634bbd46aff"
+    "revision": "30467b9995fc177624f8e85f8b697d82"
   },
   {
     "url": "tag/index.html",
-    "revision": "f4034ac651d7dd87087bcd0d67881131"
+    "revision": "ade4b1454d5aeef4cd3900461e2b288b"
+  },
+  {
+    "url": "the-beauty-of-design-patterns/design-principles/SOLID/index.html",
+    "revision": "24cb2c49fda64a50b31d754815b1d150"
   },
   {
     "url": "the-beauty-of-design-patterns/index.html",
-    "revision": "5c9f7a4af433373596466164c8ff5656"
+    "revision": "bd6495a35d294291f2da18a87be2a15b"
   },
   {
     "url": "the-beauty-of-design-patterns/object-oriented/what-is-object-oriented/index.html",
-    "revision": "4a61ed57b048d5f7f44a99d3c8bae0d1"
+    "revision": "36e1d83ad9a5426e73f823470620b1fc"
   },
   {
     "url": "the-clean-coder/index.html",
-    "revision": "0075ed2183eb23192d02168d1f070a71"
+    "revision": "3d366fd8cdfb39ffce320e025c082acc"
   },
   {
     "url": "the-clean-coder/professionalism/professionalism/index.html",
-    "revision": "a80f548d3dac8feaeaa9ebbf3d85774c"
+    "revision": "deccea5f32ae76709a95567a12cb8f32"
   },
   {
     "url": "the-clean-coder/say-no/say-no/index.html",
-    "revision": "c564f0002eb0e11bb5affabb77e42386"
+    "revision": "2b95d51cbbf94d39f637c2e71816f746"
   },
   {
     "url": "the-clean-coder/say-yes/say-yes/index.html",
-    "revision": "54de501a47fec64812b310d87c0d1709"
+    "revision": "5f8319c65a2250a46644c00340b465b3"
   },
   {
     "url": "timeline/index.html",
-    "revision": "ce2cc3f42a9bcf41adeaf3103bb73a1a"
+    "revision": "5c47189191b69bd33fc2b9b8c3512915"
   },
   {
     "url": "workbox-2c301fb6.js",
