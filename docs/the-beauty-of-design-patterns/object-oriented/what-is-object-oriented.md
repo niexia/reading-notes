@@ -474,3 +474,323 @@ class Sonar implements Pingable {
 - 如果表示一种 has-a 的关系，并且为了解决抽象而非代码代码复用的问题，就可以使用接口。
 
 从类继承层次来看，抽象类是一种自下而上的设计思路，现有子类的代码重复，然后在抽象为父类（也就是抽象类）。接口正好相反，它是自上而下的设计思路，编程的时候一般先设计接口，再去考虑具体实现。
+
+## 为什么基于接口而非实现编程
+
+“基于接口而非实现编程”是一种提高代码质量的有效手段，为了更好理解这条原则，结合实例来分析。
+
+### 如何理解原则中的“接口”
+
+>“基于接口而非实现编程”的英文描述是“Program to an interface, not an implementation”。
+
+它是一条比较抽象、泛化的设计思想，不和任何编程语言挂钩。
+
+我们知道“接口”是一组协议或者约定。在不同场景下有不同解读，比如服务端和客户端的“接口”、甚至一组通信协议都可以叫做“接口”。这些和实际代码离得有点远，落实到编程，**“基于接口而非实现编程”中的接口，可以理解为编程语言中的接口或抽象类。**
+
+**应用这条原则，可以将接口和实现相分离，封装不稳定的功能，暴露稳定的接口。不依赖于不稳定的实现细节，这样当实现发生变化的时候，代码基本不用做改动，以此降低耦合性，提高扩展性。**
+
+实际上，“面向接口而非实现编程”另一种手法是“面向抽象而非实现编程”。
+
+软件开发的最大的挑战就是需求的不断变化，**越抽象、越顶层、越脱离具体某一实现的设计，越能提高代码的灵活性，越能应对未来的需求变化**。好的代码设计，不仅能满足当下的需求，而且在未来的需求变化的时候，仍然能够在不破坏原有代码设计的情况下灵活应对。
+
+### 如何应用到实战中
+
+通过一个例子来说明
+#### 需求背景
+
+我们系统涉及到图片处理和存储的业务逻辑：图片经过处理之后上传到阿里云。
+#### 代码实现
+
+为了复用代码，我们封装图片处理的相关逻辑，提供一个 AliyunImageStore 类给整个系统使用。
+
+```ts
+
+class AliyunImageStore {
+  // 省略属性
+
+  createBucketIfNotExisting(bucketName: string) {
+    // 创建 bucket 相关逻辑...
+  }
+
+  generateAccessToken() {
+    // 根据 accesskey 等生成 access token...
+  }
+
+  uploadToAliyun(image, bucketName: stirng, accessToken: string) {
+    // 上传到阿里云...
+  }
+
+  downloadFromAliyun(url: string, accessToken: string) {
+    // 从阿里云下载...
+  }
+}
+
+// 业务使用
+
+function imageProcessing() {
+  const BUCKET_NAME = "images_bucket";
+  // 处理图片并封装层 image 对象
+  const image = "..."; 
+
+  const imageStore = new AliyunImageStore();
+  // 创建 bucket
+  imageStore.createBucketIfNotExisting(BUCKET_NAME);
+  // 生成 token
+  const accessToken = imageStore.generateAccessToken();
+  // 上传图片
+  imageStore.uploadToAliyun(image, BUCKET_NAME, accessToken)
+}
+
+```
+
+整个流程分成三步：创建 bucket、生成 access token 访问凭证、携带 token 将图片上传到 bucket 中。
+
+#### 存在的问题
+
+上面的实现，可以满足我们的需求看起来没太大问题。
+
+但是软件开发唯一不变的就是变化，过一段时间之后，我们自建了私有云，图片不再存储到阿里云了而是自己的私有云。为了应对这个需求我们怎么处理呢？
+
+我们需要重新设计一个 `PrivateImageStore` 类，并用它替换 `AliyunImageStore`。这样修改听起来不复杂，只是简单替换而已，对整个代码改动不大。
+
+**“细节是魔鬼”，前面的设计就容易出现很多细节问题**。新的类应该怎么设计才能尽量最小化代码改动替换 `AliyunImageStore` 呢？这就要求我们需要实现 `AliyunImageStore` 所有 public 方法，而这样做就会存在一些问题：
+
+- `AliyunImageStore` 中函数名暴露了实现细节。比如 `uploadToAliyun()` 和 `downloadFromAliyun()`，如果把这些方法名称照搬到 `PrivateImageStore` 明显不合适。如果重新命名，那就意味，要修改代码中所有用到这两个方法的代码，修改量可能很大。
+- 其次，将图片存储到阿里云的流程，跟存储到私有云的流程，可能并不是完全一致的。比如上传私有云不需要 access token，那么 `generateAccessToken` 就不能照搬到新的类中，另外我们在使用 `AliyunImageStore` 上传时用到了 `generateAccessToken`，这些地方都需要调整。 
+
+#### 如何更好设计
+
+如何解决前面的问题呢？根本方法就是我们在写代码的时候，需要遵循“基于接口而非实现编程”原则，具体来说需要做到这 3 点：
+
+- 函数的命名不能暴露任何实现细节。uploadToAliyun() => upload()，改为更抽象的名字
+- 封装具体的实现细节。比如阿里云相关特殊流程不应该暴露给调用者，对上传/下载流程进行封装，对外提供一个包裹所有上传/下载功能的方法
+- 为实现类定义抽象的接口。具体的实现类都依赖统一的接口定义，遵从一致的上传功能协议。使用者依赖接口，而不是具体的实现类来编程。
+
+```ts
+interface ImageStore { 
+  upload(image, bucketName: string): void;
+  download(url: string);
+}
+
+class AliyunImageStore implements ImageStore {
+  
+  private createBucketIfNotExisting(bucketName: string) {
+    // 创建 bucket 相关逻辑...
+  }
+
+  private generateAccessToken() {
+    // 根据 accesskey 等生成 access token...
+  }
+
+  upload(image, bucketName: stirng) {
+    this.createBucketIfNotExisting();
+    const accessToken = generateAccessToken()
+    // 上传到阿里云...
+  }
+
+  download(url: string, accessToken: string) {
+    const accessToken = generateAccessToken()
+    // 从阿里云下载...
+  }
+}
+
+class PrivateImageStore implements ImageStore {
+  
+  private createBucketIfNotExisting(bucketName: string) {
+    // 创建 bucket 相关逻辑...
+  }
+
+  upload(image, bucketName: stirng) {
+    this.createBucketIfNotExisting();
+    // 上传到阿里云...
+  }
+
+  download(url: string, accessToken: string) {
+    const accessToken = generateAccessToken()
+    // 从阿里云下载...
+  }
+}
+
+// 业务使用
+
+function imageProcessing() {
+  const BUCKET_NAME = "images_bucket";
+  // 处理图片并封装层 image 对象
+  const image = "..."; 
+
+  // 不关注流程只关注功能
+  const imageStore = new PrivateImageStore();
+  imageStore.upload(image, BUCKET_NAME)
+}
+```
+
+注意，我们不要通过实现类来反推接口定义，按照这个思路，就可能导致定义的接口不够抽象，依赖具体实现，这样设计也就没有意义了。
+
+<nx-tip type="warning" text="总结一下，我们在做软件开发的时候，一定要有抽象意识、封装意识、接口意识。在定义接口的时候，不要暴露任何实现细节。接口的定义只表明做什么，而不是怎么做。而且，在设计接口的时候，我们要多思考一下，这样的接口设计是否足够通用，是否能够做到在替换具体的接口实现的时候，不需要任何接口定义的改动。"/>
+
+### 是否需要为每个类都定义接口
+
+做任何事都得有个“度”，为任何类都定义接口，接口满天飞也会导致不必要的开发负担。
+
+什么时候需要定义接口呢？这就回到这条原则的初衷上来。这条原则的设计初衷是，将接口和实现相分离，封装不稳定的实现，暴露稳定的接口。
+
+如果在我们的业务场景中，某个功能只有一种实现方式，未来也不可能被其他实现方式替换（需要对业务理解才能准确判断），那我们就没有必要为其设计接口，也没有必要基于接口编程，直接使用实现类就可以了。
+
+除此之外，越是不稳定的系统，我们越是要在代码的扩展性、维护性上下功夫。
+
+## 为什么多用组合少用继承
+
+面向对象中有一条经典原则是组合优于继承，为什么这么说呢？
+
+### 为什么不推荐继承
+
+继承是面向对象的四大特性之一，用来表示类之间的 is-a 关系，可以解决代码复用的问题。虽然继承有诸多作用，**但继承层次过深、过复杂，也会影响到代码的可维护性**。
+
+所以是否使用继承，容易有争议。通过一个例子来看一下
+
+我们设计一个关于鸟的类，将“鸟类”抽象定义为一个抽象类 AbstractBird。这样细分的麻雀、鸽子继承这个类。
+
+- 我们知道大部分鸟类都会飞，那我们是不是可以在 AbstractBird 中定一个 fly 方法？
+
+答案是否定的。尽管大部分会飞，但是也有特例比如鸵鸟就不会飞。鸵鸟继承之后就有 fly 方法，代表具有飞的行为，显然不符合我们的认知。
+
+当然，你可能想到，在鸵鸟类中重写（override）fly 方法，让它抛出异常不就可以了吗？
+
+```ts
+
+class AbstractBird { 
+  // 省略其他属性和方法... 
+  fly() { //... 
+  }
+}
+
+class Ostrich extends AbstractBird {
+  // 省略其他属性和方法...
+  fly() {
+    throw new Error("Can't fly");
+  }
+}
+```
+
+可以解决问题，但不优美。因为除了鸵鸟，还有很多鸟（企鹅等）也不会飞，就会导致我们都需要重写这个方法。
+
+这样的设计，**一方面，徒增编码工作量；另一方面，也违背的最小知识原则，暴露不该暴露的接口给外部，增加被误用的概率**。
+
+- 那是不是可以拆分成更加细分的抽象类呢？
+
+为了解决前面的问题，我们还可以派生出更加细分的类：会飞的鸟类 AbstractFlyBird 和不会飞的鸟类 AbstractUnFlyBird，然后让不同鸟类分别继承，不就可以了么？
+
+![细分类](../../.vuepress/public/assets/object-oriented-extents.png)
+
+继承关系变成三层，总体上还比较简单，层级比较浅还可以接受。
+
+但是刚才我们只是考虑“鸟会不会飞”，如果我们还关注“鸟会不会叫”，那么如何设计呢？
+
+是否会飞？是否会叫？这两种行为搭配可以产生四种情况：会飞会叫、不会飞会叫、会飞不会叫、不会飞不会叫。沿用前面的思路，那就需要抽象定义 4 个类
+
+![更多细分类](../../.vuepress/public/assets/object-oriented-extends-category.png)
+
+如果还有其他场景，组合爆炸了。类的继承越深，继承关系越复杂：
+
+- 会导致代码可读性变差：我们要搞清楚某个类具有哪些方法、属性，必须阅读父类的代码、父类的父类的方法...，一致追溯到顶层父类
+- 破坏类的封装性，将父类的实现细节暴露给了子类。子类的实现依赖父类的实现，两者高度耦合，一旦父类代码修改，就会影响所有子类的逻辑。
+
+这也是为什么不推荐使用继承的原因，那不用继承怎么解决上面的问题呢？
+
+### 换组合来做有什么优势
+
+我们可以通过接口、组合、委托三个技术手段来解决这个问题。
+
+- 定义接口
+
+针对这种“会飞”的特性，我们可以定义一个 Flya 接口，对于“会叫”也可以定义 Tweet 类，翻译成代码就是：
+
+```ts
+interface Fly {}
+interface Tweet {}
+
+// 鸵鸟
+class Ostrich implements Fly, Tweet {
+  flay() {
+    // ...
+  }
+  tweet() { 
+    //... 
+  }
+}
+
+class Sparrow implements Tweet {
+  tweet() { 
+    //... 
+  }
+}
+
+```
+
+不过接口，指声明方法不定义实现。不过这样会导致会叫的鸟都需要实现一遍 tweet 方法，并且逻辑是一样的，就会导致代码重复，如何解决呢？
+
+- 组合功能委托方法
+
+可以针对接口再定义对应实现类：
+
+```ts
+interface Fly {}
+interface Tweet {}
+
+class FlyAbility implements Fly {
+  fly() {
+    // ...
+  }
+}
+
+class TweetAbility implements Fly {
+  tweet() { 
+    //... 
+  }
+}
+```
+
+这样再通过组合和委托来消除代码重复：
+
+```ts
+
+class Ostrich implements Fly, Tweet {
+  // 组合
+  private flyAbility = new FlyAbility()
+  private tweetAbility = new TweetAbility()
+
+  // 委托
+  fly() {
+    return flyAbility.fly()
+  }
+  tweet() {
+    return tweetAbility.tweet()
+  }
+}
+```
+
+继承主要有三个作用：表示 is-a 关系，支持多态特性，代码复用。而这三个作用都可以通过组合、接口、委托三个技术手段来达成。在项目中不用或者少用继承关系，特别是一些复杂的继承关系。
+
+### 如何判断该用组合还是继承
+
+尽管建议多用组合少用继承，但是组合也并不是完美的。继承改写为组合意味着做更细粒度的拆分，这也意味着要定义更多的类和接口，或多或少增加代码复杂度和维护成本。所以在实际开发中要根据实际情况来决定使用组合还是继承。
+
+**如果类之间的继承结构稳定（不会轻易改变），继承层次比较浅（比如，最多有两层继承关系），继承关系不复杂，我们就可以大胆地使用继承。反之，系统越不稳定，继承层次很深，继承关系复杂，我们就尽量使用组合来替代继承。**
+
+不要为了代码复用就使用继承。通常我们会利用继承的特性，把相同的方法和属性抽取出来定义到父类，然后子类就可以复用了。但是如果从业务含以上， A 和 B **没有继承关系**，仅仅为了复用代码而使用继承的话就会影响可读性。
+
+但是如果你不能改变一个函数的入参类型，而参数又非接口，支持多态，只能用继承。比如 `FeignClient` 是一个外部类，没有权限去修改这部分代码，但是想重写这个类在运行时执行 `encode()` 函数。这个时候只能用继承
+
+```ts
+class FeignClient {
+  // 省略其他代码...
+  encode(url: string) {
+    // ...
+  }
+}
+class CustomizedFeignClient extends FeignClient {
+  encode(String url) { 
+    //...重写encode的实现...
+  }
+}
+```
