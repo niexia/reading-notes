@@ -281,6 +281,7 @@ function getTheBeautyOfDesignPatternsSidebar() {
     sidebarDepth: 2,
     children: [
       'object-oriented/what-is-object-oriented',
+      'object-oriented/practice',
     ]
   }, {
     title: '设计原则',
