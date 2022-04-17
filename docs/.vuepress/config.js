@@ -247,8 +247,7 @@ function getTheMintoPyramidPrincipleSidebar() {
     collapsable: false,
     sidebarDepth: 2,
     children: [
-      ['', '程序员的职业素养'],
-      'the-minto-pyramid-principle/professionalism',
+      '/the-minto-pyramid-principle/logic-of-expression/为什么要用金字塔原理',
     ]
   }, {
     title: '思考的逻辑',
