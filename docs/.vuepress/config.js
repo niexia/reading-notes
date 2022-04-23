@@ -58,28 +58,28 @@ function getNav() {
   return [{
       text: '目录',
       items: [{
-          text: '技术',
+          text: '🧑🏻‍💻 技术',
           items: [
           {
             text: '设计模式之美',
             link: '/the-beauty-of-design-patterns/',
           }, {
-            text: '从 0 开始学架构',
+            text: '从0开始学架构',
             link: '/learn-architecture-from-zero/',
           }, {
-            text: '代码整洁之道-程序员的职业素养',
+            text: '代码整洁之道|程序员的职业素养',
             link: '/the-clean-coder/',
           }, ]
         },
         {
-          text: '表达',
+          text: '👋 表达',
           items: [{
             text: '金字塔原理',
             link: '/the-minto-pyramid-principle/',
           }, ]
         },
         {
-          text: '人物传记',
+          text: '🍉 人物',
           items: [{
             text: '硅谷钢铁侠',
             link: '/elon-musk/',
@@ -287,7 +287,12 @@ function getTheBeautyOfDesignPatternsSidebar() {
     collapsable: false,
     sidebarDepth: 2,
     children: [
-      'design-principles/say-no',
+      'design-principles/SOLID',
+      'design-principles/KISS',
+      'design-principles/YAGNI',
+      'design-principles/DRY',
+      'design-principles/LOD',
+      'design-principles/practice',
     ]
   }, {
     title: '规范与重构',
