@@ -709,3 +709,148 @@ function count(dataSet): Statistics {
 
 还可以把“接口”理解为 OOP 中的接口概念，比如 TS 中的 interface。那接口的设计要尽量单一，不要让接口的实现类和调用者，依赖不需要的接口函数。
 
+## 依赖反转原则 Dependency Inversion Principle
+
+和单一原则相反，这个原则用起来比较简单，但概念理解起来比较难。比如，下面这几个问题，你看看能否清晰地回答出来：
+
+- “依赖反转”这个概念指的是“谁跟谁”的“什么依赖”被反转了？“反转”两个字该如何理解？
+- 还经常听到另外两个概念：“**控制反转**”和“**依赖注入**”。这两个概念跟“**依赖反转**”有什么区别和联系呢？它们说的是同一个事情吗？
+- Spring 框架中的 IOC 跟这些概念又有什么关系呢
+
+### 控制反转（IOC）
+
+控制反转的英文翻译是 Inversion Of Control，缩写为 IOC。简单来说：将自己对程序执行流程的控制逻辑交给框架。
+
+控制反转是一个比较笼统的**设计思想**，并不是一种具体的实现方法，一般用来指导框架层面的设计。
+
+- “控制”指的是对程序执行流程的控制，
+- 而“反转”指的是在没有使用框架之前，程序员自己控制整个程序的执行。在使用框架之后，整个程序的执行流程通过框架来控制。**流程的控制权从程序员“反转”给了框架**。
+
+![IOC](../../.vuepress/public/assets/design-principles-IOC.png)
+
+### 依赖注入（DI）
+
+依赖注入跟控制反转恰恰相反，它是一种具体的**编码技巧**。依赖注入的英文翻译是 Dependency Injection，缩写为 DI。
+
+对于这个概念，有一个非常形象的说法，那就是：依赖注入是一个标价 25 美元，实际上只值 5 美分的概念。也就是说，这个概念听起来很“高大上”，实际上，理解、应用起来非常简单。
+
+看个例子，Notification 类负责消息推送，依赖 MessageSender 类实现推送商品促销、验证码等消息给用户，分别用依赖注入和非依赖注入两种方式实现一下
+
+- 使用非依赖注入
+
+```ts
+class Notification {
+  private messageSender: MessageSender;
+  constructor() {
+    // 此处有点像hardcode!
+    this.messageSender = new MessageSender(); 
+  }
+  sendMessage(cellphone: string, message: string) {
+    // 省略校验逻辑等...
+    this.messageSender.send(cellphone, message);
+  }
+}
+
+class MessageSender {
+  send(cellphone: string, message: string) {
+    //....
+  }
+}
+// 使用Notification
+const notification: Notification = new Notification();
+
+```
+
+- 使用依赖注入
+
+```ts
+class Notification {
+  private messageSender: MessageSender;
+
+  // 通过构造函数将messageSender传递进来!
+  constructor (messageSender: MessageSender) {
+    this.messageSender = messageSender;
+  }
+  sendMessage(cellphone: string, message: string) {
+    //...省略校验逻辑等...
+    this.messageSender.send(cellphone, message);
+  }
+}
+
+class MessageSender {
+  send(cellphone: string, message: string) {
+    //....
+  }
+}
+// 使用Notification
+const messageSender: MessageSender = new MessageSender()
+const notification: Notification = new Notification();
+```
+
+通过依赖注入的方式来将依赖的类对象传递进来，这样就提高了代码的扩展性，我们可以灵活地替换依赖的类。
+
+当然上面代码还有持续优化空间，可以把 MessageSender 定义成接口，基于接口而非实现编程。
+
+```ts
+interface MessageSender {
+  send(cellphone: string, message: string): void;
+}
+
+class SmsSender implements MessageSender {
+  send(cellphone: string, message: string) {
+    // ...
+  }
+}
+```
+
+尽管依赖注入非常简单，掌握刚刚举的这个例子，就等于完全掌握了依赖注入，但却非常有用，**它是编写可测试性代码最有效的手段**。
+
+### 依赖注入框架（DI Framework）
+
+采用依赖注入方式之后，虽然我们不需要用类似 hard code 的方式在类内部通过 new 来创建 MessageSender 对象。但是，这个创建对象、组装（或注入）对象的工作仅仅是被移动到了更上层代码而已，还是需要我们程序员自己来实现
+
+```ts
+class Demo {
+  constructor() {
+    const sender:MessageSender = new SmsSender(); //创建对象
+    const notification: Notification = new Notification(sender);//依赖注入
+    notification.sendMessage("13918942177", "短信验证码：2346");
+  }
+}
+```
+
+实际项目可能涉及几十、上百个类，类对象的创建和依赖注入会变得复杂。如果让程序员自己实现
+
+- 容易出错且开发成本比较高
+- 而对象创建和依赖注入，本身和具体业务无关，完全可以抽象成框架来自动完成
+
+这个框架就是“依赖注入框架”，只需要通过依赖注入框架提供的扩展点，简单配置一下所有需要创建的类对象、类与类之间的依赖关系，就可以实现由框架来自动创建对象、管理对象的生命周期、依赖注入等原本需要程序员来做的事情。
+
+现成的依赖注入框架有很多，比如 Google Guice、Java Spring。Spring 框架自己声称是**控制反转容器**（Inversion Of Control Container）
+
+两种说法都没错：
+
+- 制反转容器这种表述是一种非常宽泛的描述
+- DI 依赖注入框架的表述更具体、更有针对性
+
+实现控制反转的方式有很多，除了依赖注入，还有模板模式等，而 Spring 框架的控制反转主要是通过依赖注入来实现的
+
+### 依赖反转原则（DIP）
+
+**依赖反转原则**的英文翻译是 Dependency Inversion Principle，缩写为 DIP。中文翻译有时候也叫**依赖倒置原则**。
+
+> High-level modules shouldn’t depend on low-level modules. Both modules should depend on abstractions. In addition, abstractions shouldn’t depend on details. Details depend on abstractions.
+
+大概意思就是：
+
+- 高层模块（high-level modules）**不要依赖**低层模块（low-level）。高层模块和低层模块应该**通过抽象**（abstractions）来互相依赖。
+- 除此之外，抽象（abstractions）不要依赖具体实现细节（details），具体实现细节（details）依赖抽象（abstractions）。
+
+其中高层模块和低层模块的划分，简单来说就是，**在调用链上，调用者属于高层，被调用者属于底层**。
+
+在平时的业务代码开发中，高层模块依赖底层模块是没有任何问题的。实际上，这条原则主要还是用来**指导框架层面的设计**。
+
+“基于接口而非实现编程”跟“依赖注入”，看起来非常类似，那它俩有什么区别和联系呢？
+
+- 二者都是从外部传入依赖对象而不是在内部去new一个出来。
+- “基于接口而非实现编程”强调的是“接口”，强调依赖的对象是接口，而不是具体的实现类；而“依赖注入”不强调这个，类或接口都可以，只要是从外部传入不是在内部 new 出来都可以称为依赖注入。
