@@ -2,7 +2,7 @@ const path = require("path");
 const { config } = require("vuepress-theme-hope");
 
 module.exports = config({
-  title: '💡Reading notes',
+  title: 'READING NOTES',
   description: '写点啦!',
   base: '/reading-notes/',
   dest: 'dist',
