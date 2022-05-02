@@ -72,14 +72,14 @@ function getNav() {
           }, ]
         },
         {
-          text: '👋 表达',
+          text: '🎯 综合能力',
           items: [{
             text: '金字塔原理',
             link: '/the-minto-pyramid-principle/',
           }, ]
         },
         {
-          text: '🍉 人物',
+          text: '🥤 人物传记',
           items: [{
             text: '硅谷钢铁侠',
             link: '/elon-musk/',
@@ -150,11 +150,12 @@ function getTheCleanCoderSideBar() {
       'professionalism/professionalism',
     ]
   }, {
-    title: '说不',
+    title: '说不,说是',
     collapsable: false,
     sidebarDepth: 2,
     children: [
       'say-no/say-no',
+      'say-yes/say-yes',
     ]
   }, ]
 }
@@ -299,7 +300,9 @@ function getTheBeautyOfDesignPatternsSidebar() {
     collapsable: false,
     sidebarDepth: 2,
     children: [
-      'standard-refactor/say-no',
+      'standard-refactor/refactor',
+      'standard-refactor/standard',
+      'standard-refactor/practice',
     ]
   }, {
     title: '设计模式',
