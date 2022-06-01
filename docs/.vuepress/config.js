@@ -314,7 +314,7 @@ function getTheBeautyOfDesignPatternsSidebar() {
     collapsable: false,
     sidebarDepth: 2,
     children: [
-      'design-patterns/say-no',
+      'design-patterns/singleton-design-pattern',
     ]
   }, ]
 }
