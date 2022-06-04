@@ -314,8 +314,28 @@ function getTheBeautyOfDesignPatternsSidebar() {
     collapsable: false,
     sidebarDepth: 2,
     children: [
-      'design-patterns/create-type/singleton-design-pattern',
-      'design-patterns/create-type/factory-design-pattern',
+      { 
+        title: '创建型',
+        collapsable: false,
+        sidebarDepth: 2,
+        children: [
+          'design-patterns/create-type/singleton-design-pattern',
+          'design-patterns/create-type/factory-design-pattern',
+          'design-patterns/create-type/builder-pattern',
+        ]
+      },
+      {
+        title: '结构型',
+        collapsable: false,
+        sidebarDepth: 2,
+        children: []
+      },
+      {
+        title: '行为型',
+        collapsable: false,
+        sidebarDepth: 2,
+        children: []
+      }
     ]
   }, ]
 }
