@@ -314,7 +314,8 @@ function getTheBeautyOfDesignPatternsSidebar() {
     collapsable: false,
     sidebarDepth: 2,
     children: [
-      'design-patterns/singleton-design-pattern',
+      'design-patterns/create-type/singleton-design-pattern',
+      'design-patterns/create-type/factory-design-pattern',
     ]
   }, ]
 }

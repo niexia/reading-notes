@@ -108,7 +108,7 @@ public class OrderController {
 
 会出现互相覆盖。分别创建两个 log 对象，在 Web 容器的 Servlet **多线程环境下**，如果两个 Servlet 线程同时分别执行 login() 和 create() 两个函数，并且同时写日志到 log.txt 文件中，可能会互相覆盖。
 
-![](../../.vuepress/public/assets/design-patterns-multi-threaded.png)
+![](../../../.vuepress/public/assets/design-patterns-multi-threaded.png)
 
 - **解决方法**
 
@@ -134,7 +134,7 @@ public class Logger {
 
 但是不能解决问题。这种琐是对象级别的，**一个对象在不同的线程下同时调用 log() 函数，会被强制要求顺序执行。但是，不同的对象之间并不共享同一把锁**。
 
-![](../../.vuepress/public/assets/design-patterns-multi-threaded-safe.png)
+![](../../../.vuepress/public/assets/design-patterns-multi-threaded-safe.png)
 
 1. 把对象级别的锁，换成类级别的锁
 
