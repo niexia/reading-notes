@@ -313,9 +313,7 @@ public class IdGenerator {
 
 那么单例这种设计模式存在哪些问题？为什么会被称为反模式？如果不用单例，该如何表示全局唯一类？有何替代的解决方案？
 
-### 存在的问题
-
-#### 单例对 OOP 特性的支持不友好
+### 单例对 OOP 特性的支持不友好
 
 ```ts
 class Order {
@@ -355,13 +353,13 @@ class User {
 
 除此之外，单例对继承、多态特性的支持也不友好。所以一旦选择设计为单例类，就意味着放弃继承和多态这两个强有力的面向对象的特性。
 
-#### 单例会隐藏类之间的依赖关系
+### 单例会隐藏类之间的依赖关系
 
 在阅读代码的时候，我们希望**一眼就能看出**类与类之间的依赖关系，搞清楚这个类依赖了哪些外部类。
 
 通过**构造函数**、**参数传递**等方式声明类之间的依赖关系，我们直接可以通过函数的定义就可很容易识别出来。但是单例类不需要显示创建、不依赖参数传递，直接调用就可以，这种调用关系会比较隐蔽。阅读代码的时候仔细查看每个函数的实现才知道到底这个类依赖了哪些类。
 
-#### 单例对代码的扩展性不友好
+### 单例对代码的扩展性不友好
 
 单例类只有一个对象实例，如果有一天我们需要两个或者多个实例类，那怎么办呢？
 
@@ -371,13 +369,176 @@ class User {
 
 这个时候最初的单例类就无法满足这样的需求，也就是说单例类在某些情况下会影响扩展性、灵活性。
 
-#### 单例对代码的可测试性不友好
+### 单例对代码的可测试性不友好
 
 - 无法 mock：如果单例类依赖比较重的外部资源，比如 DB，那么写单测的时候一般会通过 mock 来将它替换，但是单实例这种硬编码的方式导致无法 mock。
 - 成员变量类似全局变量：单例类持有成员变量（例如 IdGenerator 的 id），相当于全局变量，被所有代码共享，我们写单测的时候还需要考虑不同用例之间的影响。
 
-#### 单例不支持有参数的构造函数
+### 单例不支持有参数的构造函数
 
 单例不支持有参数的构造函数，比如我们创建一个连接池的单例对象，我们没法通过参数来指定连接池的大小。
 
+解决的方法：
 
+- 第一种方法：创建实例之后，在使用前，通过调用 init() 函数传递参数。
+
+```ts
+class Singleton {
+  // 先不实例化
+  private static instance;
+  private paramA;
+  private paramB
+  private constructor (paramA, paramB) {
+    this.paramA = paramA;
+    this.paramB = paramB;
+  };
+
+  public static getInstance() {
+    // 使用前再判断
+    if (!instance) {
+      throw new Error('Run init first.')
+    }
+    return Singleton.instance;
+  }
+
+  public static init(paramA, paramB) {
+    if (Singleton.instance != null) {
+      throw new Error('Singleton has been created!')
+    }
+
+    Singleton.instance = new Singleton(paramA, paramB);
+    return Singleton.instance;
+  }
+
+  public getId() {
+    return 1;
+  }
+}
+```
+
+- 第二种方法：将参数放到 getInstance() 方法中
+
+```ts
+class Singleton {
+  // 先不实例化
+  private static instance;
+  private paramA;
+  private paramB
+  private constructor (paramA, paramB) {
+    this.paramA = paramA;
+    this.paramB = paramB;
+  };
+
+  public static getInstance(paramA, paramB) {
+    // 使用前再判断
+    if (!instance) {
+      Singleton.instance = new Singleton(paramA, paramB)
+    }
+    return Singleton.instance;
+  }
+
+  public getId() {
+    return 1;
+  }
+}
+```
+
+但是这种方法，当我们执行两次的时候第二次是不生效的，另外在构建过程中也没有给予提示，容易误导用户。
+
+```ts
+const instance1 = Singleton.getInstance(1, 2);
+const instance2 = Singleton.getInstance(3, 4); // 配置实际没有生效
+```
+
+要解决这个问题可以提供一个 update 方法
+
+```ts
+class Singleton {
+  //...
+  public updateConfig(paramA, paramB) {
+    Singleton.instance.paramA = paramA;
+    Singleton.instance.paramB = paramB;
+  }
+}
+```
+
+- 第三种方法：讲参数放到另外一个全局变量。
+
+下面通过静态常量来定义。也可以从配置文件中加载得到。
+
+```ts
+class Config {
+  public static paramA = 1;
+  public static paramB = 2;
+}
+
+class Singleton {
+  // 先不实例化
+  private static instance;
+  private paramA;
+  private paramB
+  private constructor () {
+    this.paramA = Config.paramA;
+    this.paramB = Config.paramB;
+  };
+
+  public static getInstance() {
+    // 使用前再判断
+    if (!instance) {
+      Singleton.instance = new Singleton()
+    }
+    return Singleton.instance;
+  }
+}
+```
+
+## 有何替代解决方案
+
+即便单例有这么多问题，但是不用不行啊，业务上有表示全局唯一类的需求。如果不用单例，怎么解决这个问题呢？
+
+### 使用静态方法可以吗
+
+为了保证全局唯一，除了使用单例，还可以使用 静态方法来实现。这也是项目开发中经常用到的一种实现思路。
+
+```ts
+class IdGenerator {
+  private static id = new AtomicLong(0);
+
+  public static getId() {
+    return id.incrementAndGet();
+  }
+}
+
+// 使用
+const id = IdGenerator.getId();
+```
+
+不过静态方法并不能解决之前提到的问题。实际上，**它比单例更加不灵活**，比如，它无法支持延迟加载。
+
+### 通过依赖注入呢
+
+单例除了前面的使用方式之外，还有另外一种方法，具体的代码如下：
+
+```ts
+// 老的使用方式
+function demoFunction() {
+  const id = IdGenerator.getInstance.getId();
+}
+
+// 新的使用方式：依赖注入
+function demoFunction(idGenerator) {
+  const id = idGenerator.getId;
+}
+
+// 调用时将 idGenerator 传入
+const idGenerator = IdGenerator.getInstance();
+demoFunction(idGenerator);
+```
+
+通过依赖注入的方式，可以寄解决单例隐藏类之间依赖关系的问题。不过，对单例存在的其他问题，比如 OOP 特性、扩展性、可测试性不友好的问题，还是无法解决。
+
+**如果要完全解决这些问题，我们可能要从根本上，寻找其他方式来实现全局唯一的类**。实际上，类对象的全局唯一性可以通过多种不同的方式来保证：
+
+- 我们既可以通过单例模式来强制保证
+- 也可以通过工厂模式、IOC 容器（比如 Spring IOC 容器）来保证
+- 还可以通过程序员自己来保证（自己在编写代码的时候自己保证不要创建两个类对象）
