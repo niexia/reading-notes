@@ -329,7 +329,15 @@ function getTheBeautyOfDesignPatternsSidebar() {
         title: '结构型',
         collapsable: false,
         sidebarDepth: 2,
-        children: []
+        children: [
+          'design-patterns/structural-type/proxy-design-pattern',
+          'design-patterns/structural-type/bridge-design-pattern',
+          'design-patterns/structural-type/director-design-pattern',
+          'design-patterns/structural-type/adapter-design-pattern',
+          'design-patterns/structural-type/facade-design-pattern',
+          'design-patterns/structural-type/composite-design-pattern',
+          'design-patterns/structural-type/flyweight-design-pattern',
+        ]
       },
       {
         title: '行为型',
