@@ -322,6 +322,7 @@ function getTheBeautyOfDesignPatternsSidebar() {
           'design-patterns/create-type/singleton-design-pattern',
           'design-patterns/create-type/factory-design-pattern',
           'design-patterns/create-type/builder-pattern',
+          'design-patterns/create-type/prototype-design-pattern',
         ]
       },
       {
