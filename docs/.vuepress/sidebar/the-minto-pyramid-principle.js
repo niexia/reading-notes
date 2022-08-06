@@ -1,31 +1,38 @@
 exports.getTheMintoPyramidPrincipleSidebar = function () {
   return [{
-    title: '表达的逻辑',
+    title: '基本信息',
     collapsable: false,
     sidebarDepth: 2,
     children: [
-      '/the-minto-pyramid-principle/logic-of-expression/为什么要用金字塔原理',
+      '/the-minto-pyramid-principle/',
     ]
-  }, {
-    title: '思考的逻辑',
+  }, 
+  {
+    title: '书摘',
     collapsable: false,
     sidebarDepth: 2,
     children: [
-      'say-no/say-no',
+      '/the-minto-pyramid-principle/logic-of-expression',
+      '/the-minto-pyramid-principle/logic-of-expression',
+      '/the-minto-pyramid-principle/logic-of-expression',
+      '/the-minto-pyramid-principle/logic-of-expression',
     ]
-  }, {
-    title: '解决问题的逻辑',
+  },
+  {
+    title: '总结 & 收获',
     collapsable: false,
     sidebarDepth: 2,
     children: [
-      'say-no/say-no',
+      '/the-minto-pyramid-principle/',
     ]
-  }, {
-    title: '演示的逻辑',
+  },
+  {
+    title: '书评',
     collapsable: false,
     sidebarDepth: 2,
     children: [
-      'say-no/say-no',
+      '/the-minto-pyramid-principle/',
     ]
-  }, ]
+  }
+]
 }
