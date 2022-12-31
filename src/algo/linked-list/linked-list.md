@@ -27,13 +27,13 @@
 - 头结点：第一个结点，用来记录链表的基地址，有了它，就可以遍历整条链表
 - 尾结点：最后一个结点，它的指针不指向下一个节点，而是指向空地址**NULL**
 
-![singleLinkedList](../../.vuepress/public/assets/dataStructure-linked-singleLinkedList.png)
+![singleLinkedList](../../public/assets//dataStructure-linked-singleLinkedList.png)
 
 与数组一样，链表也支持查找、插入和删除。
 
 数组进行插入和删除时，为了保持连续，需要搬移元素，所以时间复杂度是 O(n)。**而链表存储空间本身就是不连续的，所以它插入和删除是很快速的，时间复杂度为 o(1)**。
 
-![linkedInsertAndDelete](../../.vuepress/public/assets/dataStructure-linked-insertAndDelete.png)
+![linkedInsertAndDelete](../../public/assets//dataStructure-linked-insertAndDelete.png)
 
 **但是，链表想要随机访问第 k 个元素的时候，就没有数组那么高效了**。因为它是非连续存储的，所以无法像数组一样直接通过寻址公式计算出对应的内存地址。**它需要根据指针一个结点一个结点地依次遍历，直到找到相应的结点**。
 
@@ -43,7 +43,7 @@
 
 循环链表是一种特殊的单链表。循环链表和单链表唯一的区别在尾结点，它的尾结点并不是指向 NULL，而是指向头指针。
 
-![circularLinkedList](../../.vuepress/public/assets/dataStructure-linked-circularLinkedList.png)
+![circularLinkedList](../../public/assets//dataStructure-linked-circularLinkedList.png)
 
 **和单链表相比，循环链表的优点是从链尾到链头比较方便。当要处理的数据具有环型结构特点时，就特别适合采用循环链表。**
 
@@ -51,7 +51,7 @@
 
 双链表顾名思义，它支持两个方向，每个结点不止有一个后继指针——next，指向后面的结点；还有一个前驱指针——prev，指向前面的结点。
 
-![doubleLinkedList](../../.vuepress/public/assets/dataStructure-linked-doubleLinkedList.png)
+![doubleLinkedList](../../public/assets//dataStructure-linked-doubleLinkedList.png)
 
 和单链表相比，**它需要更多的内存空间**，因为它需要额外的两个空间来存储前驱指针和后继指针。虽然两个指针比较浪费存储空间，但是它可以双向遍历，有更好的灵活性，那它适合解决什么问题呢？
 
@@ -86,7 +86,7 @@
 
 把循环链表和循环链表整合到一起就得到双向循环链表了。
 
-![doubleCircularLinkedList](../../.vuepress/public/assets/dataStructure-linked-doubleCircularLinkedList.png)
+![doubleCircularLinkedList](../../public/assets//dataStructure-linked-doubleCircularLinkedList.png)
 
 ## 链表 VS 数组性能大比拼
 

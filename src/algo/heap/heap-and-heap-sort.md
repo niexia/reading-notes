@@ -15,7 +15,7 @@
 
 第二点，堆中的每个节点的值必须大于等于（或小于等于）其子树中每个节点的值，也就是说，堆中的每个节点的值都大于等于（或小于等于）其左右子节点的值。
 
-![heap](../../.vuepress/public/assets/dataStructure-heap-demo.png)
+![heap](../../public/assets//dataStructure-heap-demo.png)
 
 从图可以看出，对同一组数据，可以构建多种形态的堆。
 
@@ -27,7 +27,7 @@
 
 之前讲过，完全二叉树比较适合用数组来存储，非常节省存储空间。因为不需要存储左右子节点的指针，单纯的通过数组的下标，就可以找到节点的左右子节点。
 
-![heap store](../../.vuepress/public/assets/dataStructure-heap-store.png)
+![heap store](../../public/assets//dataStructure-heap-store.png)
 
 从上面的图中可以看到，**数组下标为 i 的节点，它的左子节点就是下标为 i * 2 的节点，它的右子节点就是下标为 i * 2 + 1 的节点，它的父节点就是下标为 i/2 的节点**。
 
@@ -45,7 +45,7 @@
 
 将新插入的节点与其父节点对比，如果不满足子节点小于等于父节点的大小关系，就互换两个节点。一直重复这个过程，直到父子节点之间满足刚说的大小关系。
 
-![heap heapify](../../.vuepress/public/assets/dataStructure-heap-heapify.png)
+![heap heapify](../../public/assets//dataStructure-heap-heapify.png)
 
 - **删除堆顶元素**
 
@@ -53,13 +53,13 @@
 
 在大顶堆中，堆顶元素就是最大的元素。删除堆顶元素之后，就需要把第二大的元素放大堆顶，第二大元素肯定出现在左右子节点中。然后再迭代的删除第二大节点，以此类推，直到叶子节点被删除。
 
-![heap delete](../../.vuepress/public/assets/dataStructure-heap-delete.png)
+![heap delete](../../public/assets//dataStructure-heap-delete.png)
 
 **这种方法存在一个问题：就是最后堆化出来的对不满足完全二叉树的特性**。
 
 换种思路，**把最后一个元素放到堆顶**，然后同样的利用父子节点对比的方法。对于不满足父子节点关系的，交换两个节点，并重复这个过程，知道父子节点之间都满足大小关系为止。这就是**从上往下**的堆化方法。
 
-![heap delete](../../.vuepress/public/assets/dataStructure-heap-deleteHeapify.png)
+![heap delete](../../public/assets//dataStructure-heap-deleteHeapify.png)
 
 前面计算过，一个包含 n 个节点的完全二叉树，树的高度不会超过 log2n。堆化的的过程就是顺着节点的路径比较交换，所以堆化的复杂度和树的高度成正比，也就是 O(logn)。**插入和删除的主要过程就是堆化，所以它们的时间复杂都是 O(logn)**。
 
@@ -82,7 +82,7 @@
 
 举个例子，看一下第二种实现思路的建堆分解步骤图。因为叶子节点往下堆化只能跟自己比较，所以可以**直接从第一个非叶子节点开始堆化**。
 
-![create heap](../../.vuepress/public/assets/dataStructure-heap-createHeap.png)
+![create heap](../../public/assets//dataStructure-heap-createHeap.png)
 
 **只需要对下标 n/2 开始到 1 的数据进行堆化，下标是 n/2 + 1 到 n 的节点都是叶子节点，不需要堆化。实际上，对完全二叉树来说，n/2 + 1 到 n 的节点都是叶子节点**
 
@@ -102,7 +102,7 @@
 
 因为叶子节点不需要进行堆化，所以要堆化的节点实际上是从倒数第 2 层开始，也就是高度为 1 开始。**每个节点堆化的过程，需要比较和交换节点的个数，跟这个节点的高度 k 成正比**。
 
-![create heap complexity](../../.vuepress/public/assets/dataStructure-heap-createHeap-complexity.png)
+![create heap complexity](../../public/assets//dataStructure-heap-createHeap-complexity.png)
 
 
 从上往下堆化，每个节点比较交换和高度成正比，所以把每个节点对应的高度求和，就可以得到时间复杂了。
@@ -132,7 +132,7 @@ S = -h + 2^h - 2 + 2^h = 2^(h+1) - h - 2
 
 堆化完成之后，再取堆顶的元素，将它和下标是 n - 1 的位置交换。一直重复这个过程，知道堆中只剩下下标为 1 的一个元素，排序完成。
 
-![heap sort](../../.vuepress/public/assets/dataStructure-heap-sort.png)
+![heap sort](../../public/assets//dataStructure-heap-sort.png)
 
 整个排序的过程，只需要个别临时空间，所以堆排序是原地排序算法。堆排序包含建堆和排序两个过程，建堆的时间复杂度是 O(n)，排序过程类似删除堆顶元素，时间复杂度是 n * O(logn) 即 O(nlogn)，所以**堆排序的整体时间复杂度为 O(nlogn)**。
 

@@ -9,6 +9,6 @@
 
 ## 目录
 
-![](../.vuepress/public/assets/the-minto-pyramid-principle.png)
+![](../public/assets//the-minto-pyramid-principle.png)
 
 

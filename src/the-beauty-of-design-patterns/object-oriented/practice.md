@@ -154,7 +154,7 @@ public class UserEntity {//省略其他属性、get/set/construct方法
 4. 查询余额：查询虚拟钱包中的余额数字。
 5. 查询交易流水：在用户充值、支付、提现的时候，我们会记录相应的交易信息，查询时将之前记录的交易流水，按照时间、类型等条件过滤之后，显示出来即可。
 
-![钱包](../../.vuepress/public/assets/object-oriented-wallet.png)
+![钱包](../../public/assets//object-oriented-wallet.png)
 
 ### 设计思路
 

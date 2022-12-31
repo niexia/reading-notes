@@ -40,7 +40,7 @@
 
 和数组的动态扩容时数据搬移不同，散列表的数据搬移比较麻烦。**因为散列表大小变了，数据的存储位置也变了，所以需要通过散列函数重新计算每个数据的位置**。
 
-![HashTable-dynamicCapacity](../../.vuepress/public/assets/dataStructure-HashTable-dynamicCapacity.png)
+![HashTable-dynamicCapacity](../../public/assets//dataStructure-HashTable-dynamicCapacity.png)
 
 插入数据的时候，时间复杂度可以使用摊还分析法，时间复杂度接近最好时间复杂度，就是 O(1)。
 

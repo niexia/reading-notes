@@ -64,7 +64,7 @@ v3
 
 内存中，散列表的结构大致如下。散列表索引中，每个结点存储的 key 是搜索关键词，value 是 SearchWord 对象的内存地址。SearchWord 对象本身存储在散列表之外的内存空间中。
 
-![](../../../.vuepress/public/assets/design-patterns-hashmap.png)
+![](../../../public/assets//design-patterns-hashmap.png)
 
 ### 深拷贝浅拷贝的区别
 
@@ -73,8 +73,8 @@ v3
 - 浅拷贝只会复制图中的索引（散列表），不会复制数据（SearchWord 对象）本身。浅拷贝得到的对象（newKeywords）跟原始对象（currentKeywords）共享数据（SearchWord 对象）
 - 相反，深拷贝不仅仅会复制索引，还会复制数据本身。深拷贝得到的是一份完完全全独立的对象。
 
-![](../../../.vuepress/public/assets/design-patterns-shallow-copy.png)
-![](../../../.vuepress/public/assets/design-patterns-deep-copy.png)
+![](../../../public/assets//design-patterns-shallow-copy.png)
+![](../../../public/assets//design-patterns-deep-copy.png)
 
 前面的实现中，将当前哈希表直接复制到新的哈希表。这样当我们去更新新的哈希表中 SearchWord
  对象的时候，因为指向的都是一个 SearchWord，就会导致当前哈希表的数据也被更新，也就是当前哈希表同时通常两个版本的数据！

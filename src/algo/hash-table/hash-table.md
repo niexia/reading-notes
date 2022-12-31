@@ -71,7 +71,7 @@ function hash(key) {
 
 往散列表插入数据，如果这个键经过散列函数散列之后，得到的散列值对应的存储位置已经被占用了，**那么就从当前位置，依次往后找，看是否有空闲位置，直到找到为止**。
 
-![HashTable-insert](../../.vuepress/public/assets/dataStructure-HashTable-insert.png)
+![HashTable-insert](../../public/assets//dataStructure-HashTable-insert.png)
 
 X 经过散列函数计算后，应该要放到下标为 6 的位置，但是这个位置已经有数据了，所以从当前位置依次遍历，看是否有位置，到尾部依然没有，则再从表头开始找，直到找到空位 2，将其插入。
 
@@ -79,13 +79,13 @@ X 经过散列函数计算后，应该要放到下标为 6 的位置，但是这
 
 查询数据的过程类似于插入数据，根据散列计算得到的散列值，获取数组下标为散列值的元素，把它和要查找的元素相比。如果相等，则说明是要查找的元素；否则就顺序往后依次查找。
 
-![HashTable-insert](../../.vuepress/public/assets/dataStructure-HashTable-find.png)
+![HashTable-insert](../../public/assets//dataStructure-HashTable-find.png)
 
 <nx-tip text="查询的时候根据散列计算得到的散列值，获取数组下标为散列值的元素，把它和要查找的元素相比。这里查找的时候是通过 key，是不是存储的时候把 key 也存储了？不然怎么判断是不是要查找的元素？"/>
 
 如果遍历到数组中的空闲位置，还没有找到，就说明要查找的元素并没有在散列表中。这是因为插入数据遇到散列冲突时，是通过依次往后遍历查找空闲的位置的，所以遍历查找的时候，如果有空位，则说明根本就没有插入这个数据，即不存在。
 
-![HashTable-insert](../../.vuepress/public/assets/dataStructure-HashTable-notFound.png)
+![HashTable-insert](../../public/assets//dataStructure-HashTable-notFound.png)
 
 3. 删除数据
 
@@ -93,7 +93,7 @@ X 经过散列函数计算后，应该要放到下标为 6 的位置，但是这
 
 可以将删除的元素标识为 deleted，这样查询的时候遇到 deleted 时不要停下来，继续往下探测。
 
-![HashTable-insert](../../.vuepress/public/assets/dataStructure-HashTable-delete.png)
+![HashTable-insert](../../public/assets//dataStructure-HashTable-delete.png)
 
 **线性探测存在的问题：**
 
@@ -131,7 +131,7 @@ hash(key) -> hash(key)+1^2 -> hash(key)+2^2 -> ...
 
 链表法是一种**更加常用**的散列冲突解决方法。相比开发寻址法，它也更加简单。如图所示，**散列表中每个槽（slot）或者桶（bucket）都会对应一条链表，散列值相同的元素都放到相同槽位对应的链表中**。
 
-![HashTable-linked](../../.vuepress/public/assets/dataStructure-HashTable-linked.png)
+![HashTable-linked](../../public/assets//dataStructure-HashTable-linked.png)
 
 插入数据的时候，通过散列函数计算得到的散列值对应到散列槽位，将数据插入到槽位中链表即可，时间复杂度为 O(1)。
 

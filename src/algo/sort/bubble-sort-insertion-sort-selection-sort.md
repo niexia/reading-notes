@@ -8,7 +8,7 @@
 
 对一组数据 4, 5, 6, 3, 2, 1，从小到大排序。第一次冒泡的过程是这样的：
 
-![bubble-sort](../../.vuepress/public/assets/algorithm-bubbleSort.png)
+![bubble-sort](../../public/assets//algorithm-bubbleSort.png)
 
 值得注意的是，冒泡算法是可以优化的。**当某次冒泡操作已经没有数据交换了，说明已经达到完全有序，不用再继续执行后续的冒泡操作了**。
 
@@ -89,7 +89,7 @@ function bubbleSort(arr)  {
 
 对一组数据 4, 5, 6, 1, 3, 2，从小到大排序。
 
-![insertion-sort](../../.vuepress/public/assets/algorithm-insertionSort.png)
+![insertion-sort](../../public/assets//algorithm-insertionSort.png)
 
 插入排序也包含两个操作，**比较**和**移动**。将一个数据 a 插入到已排序区间时，需要将 a 与已排序区间的元素依次比较大小，找到合适的插入位置。找到插入位置之后，还需要先将插入点之后的元素顺序往后移动一位，这样才能腾出位置给元素 a 插入。
 
@@ -160,7 +160,7 @@ insertionSort(arr);
 
 对一组数据 4, 5, 6, 3, 2, 1，从小到大排序。
 
-![selection-sort](../../.vuepress/public/assets/algorithm-selectionSort.png)
+![selection-sort](../../public/assets//algorithm-selectionSort.png)
 
 ### 代码实现
 

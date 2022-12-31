@@ -8,11 +8,11 @@ Redis 中的有序集合（Sorted Set）就是用跳表来实现的。如果你�
 
 对于单链表来说，即便存储的数据是有序的，也只能通过遍历来查找某个数据。查找的时间复杂度为 O(n)，效率并不高。
 
-![skipList-linked](../../.vuepress/public/assets/dataStructure-skipList-linked.png)
+![skipList-linked](../../public/assets//dataStructure-skipList-linked.png)
 
 单链表查询慢是因为需要从头遍历，那么对链表建立一级**索引**，查找就会快起来。这里每两个结点取一个到上一级，把抽出来的这一级叫作**索引**或者**索引层**。其中，down 表示 down 指针，指向下一级结点。
 
-![skipList-oneLay](../../.vuepress/public/assets/dataStructure-skipList-oneLay.png)
+![skipList-oneLay](../../public/assets//dataStructure-skipList-oneLay.png)
 
 如果我们要查找值为 14 这个结点，通过单链表，**需要遍历 10 个结点**。
 
@@ -22,7 +22,7 @@ Redis 中的有序集合（Sorted Set）就是用跳表来实现的。如果你�
 
 跟前面类似，可以依次在索引上继续增加索引层。
 
-![skipList-twoLays](../../.vuepress/public/assets/dataStructure-skipList-twoLays.png)
+![skipList-twoLays](../../public/assets//dataStructure-skipList-twoLays.png)
 
 加了第二级所以之后，现在只**需要遍历 6 个结点**。
 
@@ -30,7 +30,7 @@ Redis 中的有序集合（Sorted Set）就是用跳表来实现的。如果你�
 
 **这种链表加多级索引的结构，就是跳表。**
 
-![skipList-threeLays](../../.vuepress/public/assets/dataStructure-skipList-threeLays.png)
+![skipList-threeLays](../../public/assets//dataStructure-skipList-threeLays.png)
 
 ### 时间复杂度
 
@@ -75,7 +75,7 @@ n/2, n/4, n/8, ..., 8, 4, 2
 
 这是一个等比数列，根据等比数列的求和公式：
 
-![math](../../.vuepress/public/assets/dataStructure-skipList-math.png)
+![math](../../public/assets//dataStructure-skipList-math.png)
 
 可以求得需要的总结点数为 Sn = n - 2，所以**跳表的空间复杂度是 O(n)**。
 
@@ -113,7 +113,7 @@ n/3, n/9, ..., 9, 3, 1
 
 当我们不停的向跳表中插入数据，如果不更新索引，就可能出现 2 个索引节点之间的数据非常多的情况。极端情况下，跳表还会退化为单链表。
 
-![multipleInsert](../../.vuepress/public/assets/dataStructure-skipList-multipleInsert.png)
+![multipleInsert](../../public/assets//dataStructure-skipList-multipleInsert.png)
 
 为了避免退化，保持索引和原始链表大小之间的平衡，那么链表结点增加了，索引结点也需要增加。
 

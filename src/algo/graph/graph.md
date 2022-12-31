@@ -10,7 +10,7 @@
 
 树中的元素称为节点，图中的元素就叫作**顶点**（vertex），图中的一个顶点可以与任意其他顶点建立连接关系，把这种关系叫作**边**（edge）。
 
-![graph](../../.vuepress/public/assets/algorithm-graph-1.png)
+![graph](../../public/assets//algorithm-graph-1.png)
 
 社交网络就是一种非常典型的图结构。
 
@@ -24,7 +24,7 @@
 
 引入边的“方向”：如果 A 关注了 B，就在图中画一条从 A 到 B 的带箭头的边，来表示边的方向。如果 A 和 B 互相关注，那就画一条从 A 指向 B 的边，再画一条从 B 指向 A 的边。
 
-![graph](../../.vuepress/public/assets/algorithm-graph-2.png)
+![graph](../../public/assets//algorithm-graph-2.png)
 
 把这种边有方向的图叫作**有向图**，相对的，把边没有方向的图叫作**无向图**。
 
@@ -41,7 +41,7 @@
 
 这就需要另一种图，**带权图**（weighted graph）。在带权图中，每条边都有一个权重（weight），可以通过这个权重表示 QQ 好友之间的亲密度。
 
-![graph](../../.vuepress/public/assets/algorithm-graph-3.png)
+![graph](../../public/assets//algorithm-graph-3.png)
 
 这就是比较常用的图，那如何在内存中存储图这种数据结构呢？
 
@@ -59,7 +59,7 @@
 2. 对于有向图来说，如果顶点 i 到顶点 j 之间，有一条箭头从顶点 i 指向顶点 j 的边，那我们就将 A[i][j] 标记为 1。同理，如果有一条箭头从顶点 j 指向顶点 i 的边，我们就将 A[j][i] 标记为 1。
 3. 对于带权图，数组中就存储相应的权重。
 
-![Adjacency Matrix](../../.vuepress/public/assets/algorithm-graph-adjacencyMatrix.png)
+![Adjacency Matrix](../../public/assets//algorithm-graph-adjacencyMatrix.png)
 
 **这种方式虽然简单、直观，但是比较浪费存储空间**。
 
@@ -82,7 +82,7 @@
 
 下面画了一张邻接表的图，乍一看，邻接表有点像散列表：
 
-![Adjacency List](../../.vuepress/public/assets/algorithm-graph-adjacencyList.png)
+![Adjacency List](../../public/assets//algorithm-graph-adjacencyList.png)
 
 说明一下，图中画的是一个有向图的邻接表存储范式，每个顶点的链表里存储的是指向的顶点。对于无向图来说，也是类似的，不过，每个顶点的链表存储的是，跟这个顶点有边相连的顶点。
 
@@ -121,7 +121,7 @@
 
 对应到图上，邻接表中，每个顶点的链表中，存储的就是**这个顶点指向的顶点**，逆邻接表中，每个顶点的链表中，存储的是**指向这个顶点的顶点**。如果要查找某个用户关注了哪些用户，可以在邻接表中查找；如果要查找某个用户被哪些用户关注了，则从逆邻接表中查找。
 
-![AdjacencyList and InverseAdjacencyList](../../.vuepress/public/assets/algorithm-graph-adjacencyListAndInverseAdjacencyList.png)
+![AdjacencyList and InverseAdjacencyList](../../public/assets//algorithm-graph-adjacencyListAndInverseAdjacencyList.png)
 
 基础的邻接表还存在一个问题是，不能快速判断两个用户之间的相互关注关系，所以需要改进，将链表改为支持快速查找的动态数据结构。选择哪种动态数据结构呢？红黑树、跳表、有序动态数组还是散列表呢？
 
@@ -135,7 +135,7 @@
 
 用下面这张表来存储这样一个图。为了高效地支持前面定义的操作，可以在表上建立多个索引，比如第一列、第二列，给这两列都建立索引。
 
-![database](../../.vuepress/public/assets/algorithm-graph-database.png)
+![database](../../public/assets//algorithm-graph-database.png)
 
 ### 小结
 

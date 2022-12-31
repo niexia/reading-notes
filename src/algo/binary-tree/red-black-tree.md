@@ -10,7 +10,7 @@
    
 平衡二叉树的严格定义是：**二叉树中任意一个节点的左右子树的高度相差不能大于 1**。完全二叉树、满二叉树都属于平衡二叉树，但是非完全二叉树也有可能是平衡二叉树。
 
-![balanced tree](../../.vuepress/public/assets/dataStructure-tree-balancedTree.png)
+![balanced tree](../../public/assets//dataStructure-tree-balancedTree.png)
 
 2. 平衡二叉查找树
 
@@ -39,7 +39,7 @@
 
 第二点稍微有些奇怪，它主要是为了简化红黑树的代码实现设置的。暂不考虑这点，忽略掉之后红黑树的图例为：
 
-![Red-Black Tree](../../.vuepress/public/assets/dataStructure-tree-RebBlackTree.png)
+![Red-Black Tree](../../public/assets//dataStructure-tree-RebBlackTree.png)
 
 ### 为什么说红黑树近似平衡
 

@@ -74,7 +74,7 @@ function (n) {
 f(5)
 ```
 
-![replicationComputation](../../.vuepress/public/assets/algorithm-recursive-replicationComputation.png)
+![replicationComputation](../../public/assets//algorithm-recursive-replicationComputation.png)
 
 所以可以通过保存已经求解过的 `f(k)` 阿里解决，当递归到 `f(k)` 是，先看一下，是否已经求解过。如果是，则直接从散列表中取值返回，不需要重复计算；如果不是，则进行求解，并将结果保存。
 

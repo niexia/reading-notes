@@ -8,7 +8,7 @@
 
 栈只支持两个基本操作：**入栈 push() 和 出栈 pop()**，而队列也非常相似，支持的基本操作也只有两个：**入队 enqueue()**，放一个数据到队列尾部；**出队 dequeue()**，从队列的头部取出一个数据。
 
-![queue](../../.vuepress/public/assets/dataStructure-queue.png)
+![queue](../../public/assets//dataStructure-queue.png)
 
 所以，队列跟栈一样，也是一种操作受限的线性表数据结构。
 

@@ -2,7 +2,7 @@
 
 为了方便输入，当你在搜索引擎的搜索框中，输入要搜索的文字的某一部分，搜索引擎就会自动弹出下拉框，里面是各种关键词提示。然后可以直接选择，而不必输入所有内容。
 
-![search completion](../../.vuepress/public/assets/dataStructure-tire-eg1.png)
+![search completion](../../public/assets//dataStructure-tire-eg1.png)
 
 它是怎么实现的呢？底层使用的是那种数据结构和算法呢？
 
@@ -18,19 +18,19 @@ Tire 树，也叫字典树。顾名思义，它是一种树形结构。这种数
 
 这时候，可以先对这 6 个字符串做一下预处理，组织成 Tire 树的结构。之后每次查找，都是在 Tire 中进行匹配查找：
 
-![tire](../../.vuepress/public/assets/dataStructure-tire-eg2.png)
+![tire](../../public/assets//dataStructure-tire-eg2.png)
 
 Tire 的构造过程如下，每一步都相当于往 Tire 树中插入一个字符串，所有字符串都插入完成之后，Tire 树就构造好了。
 
-![tire](../../.vuepress/public/assets/dataStructure-tire-eg3.png)
+![tire](../../public/assets//dataStructure-tire-eg3.png)
 
 在 Tire 树中查找一个字符串的时候，比如查找“her”，先将它分割成单个字符串 h，e，r，然后从 Tire 树的根节点开始匹配。如果所示，绿色的路径就是在 Tire 树中的匹配路径。
 
-![tire](../../.vuepress/public/assets/dataStructure-tire-eg4.png)
+![tire](../../public/assets//dataStructure-tire-eg4.png)
 
 如果要查找 “he”，方法还是一样的，如图所示，绿色路径就是“he”的匹配路径。但是有点不同，**路径的最后一个节点“e”并不是红色的**，也就是说，“he”是某个字符串的前缀，它并不能完全匹配任何字符串。
 
-![tire](../../.vuepress/public/assets/dataStructure-tire-eg5.png)
+![tire](../../public/assets//dataStructure-tire-eg5.png)
 
 ## 实现 Tire 树
 
@@ -45,7 +45,7 @@ Tire 的构造过程如下，每一步都相当于往 Tire 树中插入一个字
 
 借助散列表的思想，**通过一个下标与字符一一映射的数组，来存储子节点的指针**。如下图：
 
-![tire](../../.vuepress/public/assets/dataStructure-tire-eg6.png)
+![tire](../../public/assets//dataStructure-tire-eg6.png)
 
 假设我们的字符串只有 a~z 这 26 个小写字母。那么，在数组下标为 0 的位置存储指向子节点 a 的指针，下标为 1 的位置存储指向子节点 b 的指针，以此类推，下标为 25 的位置存储指向子节点 z 的指针。如果某个节点不存在，那么就在对应的下标位置存储 null。
 
@@ -150,7 +150,7 @@ Tire 树的本质是将重复的前缀组合在一起，避免重复存储。但
 
 Tire 的变体都可以在一定程度上解决内存的销毁问题。比如，还有**缩点优化**，就是对于只有一个子节点的节点，可以将此节点与子节点合并。也可以节省空间。
 
-![tire](../../.vuepress/public/assets/dataStructure-tire-eg7.png)
+![tire](../../public/assets//dataStructure-tire-eg7.png)
 
 ## Tire 树与散列表、红黑树的比较
 

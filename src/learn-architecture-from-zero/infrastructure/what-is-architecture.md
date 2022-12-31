@@ -74,7 +74,7 @@
 
 还是看前面的学生管理系统，从不同角度区划分，我们接可以得到不同的“架构”。
 
-![architecture-division](../../.vuepress/public/assets/architecture-division.png)
+![architecture-division](../../public/assets//architecture-division.png)
 
 ### 重新定义架构
 
@@ -281,6 +281,6 @@ location / {
 
 通过前面的分析，可以知道系统的复杂性主要是在存储的可靠性上，需要保证异常情况下数据不丢失，对应的架构如下：
 
-![student-system-design](../../.vuepress/public/assets/architecture-student-system-design.png)
+![student-system-design](../../public/assets//architecture-student-system-design.png)
 
 架构是为了解决系统复杂度问题，需求驱动架构设计。

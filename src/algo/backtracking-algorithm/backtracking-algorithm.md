@@ -14,7 +14,7 @@
 
 有一个 8x8 的棋盘，希望往里放 8 个棋子（皇后），每个棋子所在的行、列、对角线都不能有另一个棋子。八皇后问题就是期望找到所有满足这种要求的放棋子方式。
 
-![backtrack algorithm eg1](../../.vuepress/public/assets/algorithm-backtrackAlgorithm-eg1.png)
+![backtrack algorithm eg1](../../public/assets//algorithm-backtrackAlgorithm-eg1.png)
 
 这个问题划分成 8 个阶段，依次将 8 个棋子放到第一行、第二行、第三行……第八行。在放置的过程中，我们不停地检查当前的方法，是否满足要求。如果满足，则跳到下一行继续放置棋子；如果不满足，那就再换一种方法，继续尝试。
 

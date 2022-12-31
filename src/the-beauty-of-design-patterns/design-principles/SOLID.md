@@ -381,7 +381,7 @@ class Demo {
 }
 ```
 
-![重构之后](../../.vuepress/public/assets/design-principles-OCP.png)
+![重构之后](../../public/assets//design-principles-OCP.png)
 
 重构之后代码更加易扩展，如果想加新的功能：
 
@@ -726,7 +726,7 @@ function count(dataSet): Statistics {
 - “控制”指的是对程序执行流程的控制，
 - 而“反转”指的是在没有使用框架之前，程序员自己控制整个程序的执行。在使用框架之后，整个程序的执行流程通过框架来控制。**流程的控制权从程序员“反转”给了框架**。
 
-![IOC](../../.vuepress/public/assets/design-principles-IOC.png)
+![IOC](../../public/assets//design-principles-IOC.png)
 
 ### 依赖注入（DI）
 

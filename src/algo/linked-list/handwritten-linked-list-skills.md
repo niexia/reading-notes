@@ -21,7 +21,7 @@
 
 写链表代码的时候，一定注意不要弄丢了指针。看个例子：
 
-![tips eg1](../../.vuepress/public/assets/dataStructure-linked-tips-eg1.png)
+![tips eg1](../../public/assets//dataStructure-linked-tips-eg1.png)
 
 如图，想在相邻的 a 和 b 节点之间插入 x，假设当前指针 p 指向结点 a。那么一不小心，就会写成下面的样子。如果把代码实现成下面这样，就会发生指针丢失和内存泄露。
 
@@ -62,7 +62,7 @@ p->next = x;
 
 你可以找一个具体的例子，把它画在纸上，这样就会感觉到思路清晰很多。比如往单链表中插入一个数据这样一个操作，可以把各种情况都举一个例子，画出插入前和插入后的链表变化，如图所示：
 
-![tips eg2](../../.vuepress/public/assets/dataStructure-linked-tips-eg2.png)
+![tips eg2](../../public/assets//dataStructure-linked-tips-eg2.png)
 
 看图写代码，那就简单很多了！
 

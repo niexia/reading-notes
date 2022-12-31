@@ -9,7 +9,7 @@
 
 **二叉查找树就是：在树中的任意一个节点，其左子树中的每个节点的值，都要小于这个节点的值，而右子树节点的值都要大于这个节点的值。**
 
-![binarySearchTree](../../.vuepress/public/assets/dataStructure-tree-binarySearchTree.png)
+![binarySearchTree](../../public/assets//dataStructure-tree-binarySearchTree.png)
 
 ## 二叉查找数的查找、插入和删除
 
@@ -303,7 +303,7 @@ test();
 
 不同结构的二叉查找树，它们的查找、插入、删除操作的执行效率都是不一样的。
 
-![binarySearchTree](../../.vuepress/public/assets/dataStructure-tree-binarySearchTree2.png)
+![binarySearchTree](../../public/assets//dataStructure-tree-binarySearchTree2.png)
 
 如图第一种，**最糟糕的情况下二叉查找树已经退化为链表，此时查找的复杂度为 O(n)；那么最好的情况复杂度又是呢？比如二叉查找树正好是完全二叉树（或者满二叉树）**。
 

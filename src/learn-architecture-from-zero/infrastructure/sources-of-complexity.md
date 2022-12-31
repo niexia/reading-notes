@@ -43,7 +43,7 @@
 
 #### 1. 任务分配
 
-![architecture-cluter-extend](../../.vuepress/public/assets/architecture-cluter-extend.png)
+![architecture-cluter-extend](../../public/assets//architecture-cluter-extend.png)
 
 当我们从 1 台服务器增加到 2 台时，看看任务分配的复杂性。
 
@@ -83,7 +83,7 @@
 
 业务简单时，1 台机器扩展到 10 台，性能能有 8 倍提升，但是如果业务复杂，可能只能提升 5 倍。原因就是业务月复杂，单台机器的处理性能就会越来越低。为了继续提升性能，需要采取第二种方式：任务分解，也就是把业务服务器拆分成更多组成部分。
 
-![task-decomposition](../../.vuepress/public/assets/architecture-cluter-task-decomposition.png)
+![task-decomposition](../../public/assets//architecture-cluter-task-decomposition.png)
 
 在上面的结构示意图中，微信后台结构从业务逻辑上将各个子业务进行拆分，包括：注册登录、摇一摇等。
 

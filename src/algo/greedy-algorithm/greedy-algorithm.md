@@ -36,7 +36,7 @@
 
 再看个例子，有一个有权图，从顶点 S 出发，找到一条到顶点 T 的最短路径（路径中边的权值和最小）。
 
-![greedy algorithm eg](../../.vuepress/public/assets/algorithm-greedyAlgorithm-eg1.png)
+![greedy algorithm eg](../../public/assets//algorithm-greedyAlgorithm-eg1.png)
 
 贪心算法的解决思路是，每次选择一条跟当前顶点相连的权最小的边，直到找到顶点 T。根据这种思路，求出的路径就是 S -> A -> E -> T，路径长度 1 + 4 + 4 = 9。
 
@@ -78,7 +78,7 @@
 
 每次选择的时候，左端点跟前面的已经覆盖的区间不重合的，右端点又尽量小的，这样可以**让剩下的未覆盖区间尽可能的大，就可以放置更多的区间**。这实际上就是一种贪心的选择方法。
 
-![greedy algorithm eg](../../.vuepress/public/assets/algorithm-greedyAlgorithm-eg2.png)
+![greedy algorithm eg](../../public/assets//algorithm-greedyAlgorithm-eg2.png)
 
 ## 总结
 

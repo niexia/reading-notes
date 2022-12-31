@@ -46,7 +46,7 @@ S = n-1 + n-2 + ... + 1
 
 归并排序中有一个非常关键的操作，就是将两个有序的小数组，合并成一个有序的数组。**在这个合并的过程中，就可以计算这两个小数组的逆序对个数了**。
 
-![divide and conquer algorithms eg1](../../.vuepress/public/assets/algorithm-divideAndConquerAlgorithms-eg1.png)
+![divide and conquer algorithms eg1](../../public/assets//algorithm-divideAndConquerAlgorithms-eg1.png)
 
 ### 在海量数据处理中的应用
 

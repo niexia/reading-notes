@@ -6,7 +6,7 @@
 
 这里的树和生活中的“树”很像，先看看几棵树：
 
-![tree](../../.vuepress/public/assets/dataStructure-tree.png)
+![tree](../../public/assets//dataStructure-tree.png)
 
 树的常用概念有：
 
@@ -21,7 +21,7 @@
 9. 节点的层数：节点的深度 **+ 1**；
 10. 树的高度：根节点的高度。
 
-![tree-example](../../.vuepress/public/assets/dataStructure-tree-example.png)
+![tree-example](../../public/assets//dataStructure-tree-example.png)
 
 **高度就类似楼层一样，从下往上，起点记为 0；而深度类似水的深度，从上往下，起点也记为 0；层数跟深度类似，不过起点记为 1。**
 
@@ -41,7 +41,7 @@
 
 二叉树中，叶子节点都在**最底下两层**，最后一层的叶子节点都**靠左排列**，并且除了最后一层，其他层的节点个数都要**达到最大**，这种二叉树叫作完全二叉树。
 
-![binaryTree](../../.vuepress/public/assets/dataStructure-tree-binaryTree.png)
+![binaryTree](../../public/assets//dataStructure-tree-binaryTree.png)
 
 <nx-tip text="完全二叉树的特征并不是很明显，为什么要特意说明呢？为什么要求它最后一层的叶子节点靠左排列？它的定义目的在哪？"/>
 
@@ -55,13 +55,13 @@
 
 每个节点有 3 个字段，其中一个存储数据，另外是两个指向左右子节点的指针。只要拎住根节点，就可以通过左右子节点的指针，把整棵树都串起来。这种存储结构比较常用，大部分二叉树都是通过这种结构来实现。
 
-![linkedStore](../../.vuepress/public/assets/dataStructure-tree-binaryTree-linkedStore.png)
+![linkedStore](../../public/assets//dataStructure-tree-binaryTree-linkedStore.png)
 
 **2. 顺序存储法**
 
 用数组来存储，如果节点 X 存储在下标为 `i` 的位置，那它的左子节点存储在 `2 * i` 的位置，右子节点存储在 `2 * i + 1` 的位置。反过来，下标 `i/2` 位置存储的就是它的父节点。通过这种方式，只要知道根节点的存储位置（一般情况，为了方便计算，**根节点会存储在下标为 1 的位置**），就可以通过下标的计算，把整棵树都串起来。
 
-![arrayStore](../../.vuepress/public/assets/dataStructure-tree-binaryTree-arrayStore.png)
+![arrayStore](../../public/assets//dataStructure-tree-binaryTree-arrayStore.png)
 
 这个时候，如果是完全二叉树，它仅仅浪费一个下标为 0 的存储位置，而非完全二叉树，其实就会浪费比较多的数组存储空间。
 

@@ -680,7 +680,7 @@ class Ostrich extends AbstractBird {
 
 为了解决前面的问题，我们还可以派生出更加细分的类：会飞的鸟类 AbstractFlyBird 和不会飞的鸟类 AbstractUnFlyBird，然后让不同鸟类分别继承，不就可以了么？
 
-![细分类](../../.vuepress/public/assets/object-oriented-extents.png)
+![细分类](../../public/assets//object-oriented-extents.png)
 
 继承关系变成三层，总体上还比较简单，层级比较浅还可以接受。
 
@@ -688,7 +688,7 @@ class Ostrich extends AbstractBird {
 
 是否会飞？是否会叫？这两种行为搭配可以产生四种情况：会飞会叫、不会飞会叫、会飞不会叫、不会飞不会叫。沿用前面的思路，那就需要抽象定义 4 个类
 
-![更多细分类](../../.vuepress/public/assets/object-oriented-extends-category.png)
+![更多细分类](../../public/assets//object-oriented-extends-category.png)
 
 如果还有其他场景，组合爆炸了。类的继承越深，继承关系越复杂：
 
