@@ -10,7 +10,7 @@ import sideBar from './sidebar'
 const nav: ThemeConfig['nav'] = [
   {
     text: 'Docs',
-    activeMatch: `^/(guide|style-guide|cookbook|examples)/`,
+    activeMatch: `^/(algo|learn-architecture-from-zero|the-minto-pyramid-principle|the-clean-coder|elon-musk)/`,
     items: [
       // { text: 'Guide', link: '/guide/introduction' },
       {
@@ -74,12 +74,12 @@ const nav: ThemeConfig['nav'] = [
   },
   {
     text: '精读',
-    activeMatch: `^/api/`,
-    link: '/api/'
+    activeMatch: `^/intensive-reading/`,
+    link: '/intensive-reading/'
   },
   {
     text: '翻译',
-    activeMatch: `^/ecosystem/`,
+    activeMatch: `^/translate/`,
     items: []
   },
   {
@@ -89,7 +89,7 @@ const nav: ThemeConfig['nav'] = [
 ]
 
 export const sidebar: ThemeConfig['sidebar'] = {
-  ...sideBar
+  ...sideBar,
 }
 
 export default defineConfigWithTheme<ThemeConfig>({
