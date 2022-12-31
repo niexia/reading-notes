@@ -1,0 +1,1 @@
+import{_ as i,o as t,c as e}from"./app.7b8c6bb5.js";const n=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"the-minto-pyramid-principle/logic-of-thinking.md"}');const r=i({name:"the-minto-pyramid-principle/logic-of-thinking.md"},[["render",function(i,n,r,o,a,p){return t(),e("div")}]]);export{n as __pageData,r as default};
