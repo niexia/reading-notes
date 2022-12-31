@@ -12,7 +12,7 @@
       一本个人的, 种类多的, 持续更新的, 认真整理的阅读笔记
     </p>
     <p class="actions">
-      <a class="get-started" href="/algo/">
+      <a class="get-started" href="/reading-notes/algo/">
         Get Started
         <svg
           class="icon"

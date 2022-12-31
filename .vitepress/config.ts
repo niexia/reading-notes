@@ -77,11 +77,11 @@ const nav: ThemeConfig['nav'] = [
     activeMatch: `^/intensive-reading/`,
     link: '/intensive-reading/'
   },
-  {
-    text: '翻译',
-    activeMatch: `^/translate/`,
-    items: []
-  },
+  // {
+  //   text: '翻译',
+  //   activeMatch: `^/translate/`,
+  //   items: []
+  // },
   {
     text: 'Blog',
     link: 'https://niexia.github.io/'
@@ -101,6 +101,7 @@ export default defineConfigWithTheme<ThemeConfig>({
   srcDir: 'src',
   srcExclude: ['tutorial/**/description.md'],
   scrollOffset: 'header',
+  base: '/reading-notes/',
 
   head: [
     ['meta', { name: 'theme-color', content: '#3c8772' }],
