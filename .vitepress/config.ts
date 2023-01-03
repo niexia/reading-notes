@@ -107,6 +107,7 @@ export default defineConfigWithTheme<ThemeConfig>({
     ['meta', { name: 'theme-color', content: '#3c8772' }],
     ['meta', { name: 'twitter:site', content: '@niexia' }],
     ['meta', { name: 'twitter:card', content: 'summary' }],
+    ['link', { rel: 'icon', href: '/favicon.ico'}],
     [
       'script',
       {},
