@@ -72,11 +72,11 @@ const nav: ThemeConfig['nav'] = [
       }
     ]
   },
-  {
-    text: '精读',
-    activeMatch: `^/intensive-reading/`,
-    link: '/intensive-reading/'
-  },
+  // {
+  //   text: '精读',
+  //   activeMatch: `^/intensive-reading/`,
+  //   link: '/intensive-reading/'
+  // },
   // {
   //   text: '翻译',
   //   activeMatch: `^/translate/`,

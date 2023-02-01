@@ -9,7 +9,7 @@
       <br />尝试新事物
     </h1>
     <p class="description">
-      一本个人的, 种类多的, 持续更新的, 认真整理的阅读笔记
+      种类多的持续更新的认真整理的阅读笔记
     </p>
     <p class="actions">
       <a class="get-started" href="/reading-notes/algo/">
