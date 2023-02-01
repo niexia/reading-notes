@@ -1,1 +1,0 @@
-import{_ as e,o as i,c as o}from"./app.21505a60.js";const r=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"the-minto-pyramid-principle/logic-of-problem-solving.md"}');const t=e({name:"the-minto-pyramid-principle/logic-of-problem-solving.md"},[["render",function(e,r,t,a,n,p){return i(),o("div")}]]);export{r as __pageData,t as default};

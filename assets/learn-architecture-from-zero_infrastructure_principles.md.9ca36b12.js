@@ -1,1 +1,0 @@
-import{_ as r,o as e,c as t}from"./app.21505a60.js";const a=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"learn-architecture-from-zero/infrastructure/principles.md"}');const i=r({name:"learn-architecture-from-zero/infrastructure/principles.md"},[["render",function(r,a,i,n,s,c){return e(),t("div")}]]);export{a as __pageData,i as default};

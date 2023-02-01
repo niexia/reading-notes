@@ -1,1 +1,0 @@
-import{_ as t,o as e,c as a}from"./app.21505a60.js";const r=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"mysql/README.md"}');const s=t({name:"mysql/README.md"},[["render",function(t,r,s,n,o,m){return e(),a("div")}]]);export{r as __pageData,s as default};

@@ -1,1 +1,0 @@
-import{_ as t,o as e,c as i}from"./app.21505a60.js";const r=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"the-minto-pyramid-principle/logic-of-presentation.md"}');const a=t({name:"the-minto-pyramid-principle/logic-of-presentation.md"},[["render",function(t,r,a,n,o,p){return e(),i("div")}]]);export{r as __pageData,a as default};
